@@ -1,9 +1,9 @@
 <div class="container">
-    <h1 class="form-heading">Sign In</h1>
+    <h1 class="form-heading">Sign Up</h1>
     <form #signInForm="ngForm" (ngSubmit)="submitForm(signInForm)">
         <div class="form-group">
             <label for="name">Username</label>
-            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="formData.name" placeholder="Username">
+            <input type="text" class="form-control" id="name" name="username" [(ngModel)]="formData.username" placeholder="Username">
         </div>
         <div class="form-group">
             <label for="email">Email address</label>
@@ -17,10 +17,10 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" [(ngModel)]="formData.password" placeholder="Password">
         </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="checkbox" name="checkbox" [(ngModel)]="formData.checkbox">
-            <label for="checkbox" class="form-check-label">Check me out</label>
+        <span>Already have an account? <a href="/login">Login</a></span>
+
+        <div class="button">
+            <button type="submit" class="btn btn-primary" (click)="postMethod()">Submit</button>
         </div>
-        <button type="submit" class="btn btn-primary">Sign In</button>
     </form>
 </div>
