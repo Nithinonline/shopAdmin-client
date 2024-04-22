@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20vh; 
+    justify-content: center;
+    width: 60vw;
+    background-color:rgba(101,181,255,0.2);
+    padding: 10vh;
+    border-radius: 10px;
+
+    .form-heading{
+        display: flex;
+        justify-content: center;
+    }
+    h1{
+        font-size: 30px;
+    }
+   .form-group{
+    margin-top: 2vh;
+   }
+   .row-div{
+    display: flex;
+    flex-direction: row;
+   }
+  
+ 
+}
