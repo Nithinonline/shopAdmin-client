@@ -4,7 +4,7 @@
     margin-top: 20vh; 
     justify-content: center;
     width: 60vw;
-    background-color:rgba(101,181,255,0.2);
+    background-color:#FFFFF7;
     padding: 10vh;
     border-radius: 10px;
 
@@ -17,5 +17,10 @@
     }
    .form-group{
     margin-top: 2vh;
+   }
+   .form-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 4vh;
    }
 }

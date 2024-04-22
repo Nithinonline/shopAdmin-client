@@ -1,1 +1,27 @@
-<p>home works!</p>
+<div>
+    <div>
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 ml-5 h1">Admin</span>
+        </nav>
+    </div>
+
+    <div class="add-button-container">
+        <button type="button" class="btn btn-light btn-lg btn-block">Add New Shop</button>     </div>
+
+    <div class="container">
+        <div *ngFor="let card of cards" class="card">
+            <div class="card-body">
+                <div class="image">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3443/3443338.png" alt="" class="shop-icon">
+                </div>
+                <div class="details">
+                    <h5 class="card-title">Shop Title</h5>
+                    <p class="card-text">City</p>
+                    <button type="button" class="btn btn-dark">View Shop Details</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

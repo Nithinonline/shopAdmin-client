@@ -1,0 +1,47 @@
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 40%;
+    margin: 10px; 
+    // background-color: #03A9F4;
+    background-color: #FFFFF7 ;
+    min-width: 350px;
+}
+.card-body{
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 2fr;
+    
+    
+}
+.shop-icon{
+    width: 70px;
+    margin: 10px;
+    margin-left: 20px;
+}
+.btn{
+display: flex;
+align-items: flex-end;
+}
+.details{
+    display: grid;
+    justify-content: center;
+}
+.navbar{
+    position: sticky;
+}
+.add-button-container{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin-right: 50px;
+    align-items: flex-end;
+
+   
+}
