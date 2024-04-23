@@ -3,6 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  
 }
 
 .card {
@@ -11,6 +12,7 @@
     // background-color: #03A9F4;
     background-color: #FFFFF7 ;
     min-width: 350px;
+    
 }
 .card-body{
     display: grid;
@@ -42,6 +44,100 @@ align-items: flex-end;
     padding: 30px;
     margin-right: 50px;
     align-items: flex-end;
-
+  .btn{
+      display: flex;
+      justify-content: space-around;
+  }
    
+}
+.navbar-brand{
+    margin-left: 80px;
+}
+
+// .view-more-card-container{
+//     position: absolute;
+//     width: 30vw;
+//     aspect-ratio: 1/1;
+//     background-color: #FFFFF7;
+//     border-radius: 10px;
+//     margin-left: 35vw;
+//     margin-right: 35vw;
+//     margin-bottom: 50vh;
+   
+// }
+
+.view-more-card-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 30vw;
+    min-width: 380px;
+    aspect-ratio: 1/1;
+    background-color: #FFFFF7;
+    border-radius: 10px;
+    z-index: 9999; 
+}
+
+
+.view-more-shop-image{
+    width:150px;
+    aspect-ratio: 1/1;
+    
+    
+}
+
+.view-more-image-container{
+    
+   
+}
+.view-more-form1-container{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
+}
+.view-more-form2-container{
+    display: flex;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    
+   
+ 
+}
+
+.form-group-2{
+   color: #FFFFF7;
+   margin-left: 30px;
+   display: flex;
+   justify-content: center;
+   margin-top: 10px;
+}
+
+.example-full-width-form2{
+    width: 25vw;
+    min-width: 240px;
+}
+.example-form2{
+    margin-top: 10px;
+}
+.view-more-icons{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-more-submit{
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
