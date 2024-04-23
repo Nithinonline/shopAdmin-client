@@ -1,13 +1,27 @@
 <div>
     <div>
         <nav class="navbar navbar-light bg-light">
+            <div class="brand-div">
+                <mat-icon>
+                    <span class="material-symbols-outlined">
+                        storefront
+                    </span>
+                </mat-icon>
 
-            <span class="navbar-brand mb-0 ml-5 h1">Shop Manager</span>
+                <span class="navbar-brand mb-0 ml-5 h1">Shop Manager</span>
+            </div>
+            <div class="logout-symbol-div">
+                <mat-icon>
+                    <span class="logout-symbol-outlined">
+                        logout
+                        </span>
+                </mat-icon>
+            </div>
         </nav>
     </div>
 
     <div class="add-button-container">
-        <button type="button" class="btn btn-light btn-lg btn-block">
+        <button type="button" class="btn btn-light btn-lg btn-block" (click)="handleAddShopClose()">
             <mat-icon>
                 library_add
             </mat-icon>
@@ -15,45 +29,127 @@
     </div>
 
     <div class="container">
-        <div *ngFor="let card of cards" class="card"
-            [ngStyle]="{ 'background-color': viewMore ? 'rgba(255, 255, 247, 0.5)' : ''}">
+        <div *ngFor="let shop of shopList" class="card"
+            [ngStyle]="{ 'background-color': viewMore || addNewShop ? 'rgba(255, 255, 247, 0.5)' : ''}">
             <div class="card-body">
 
                 <div class="image">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3443/3443338.png" alt="" class="shop-icon">
+                    <img src="../../assets/pokemonSearch.png" alt="" class="shop-icon">
                 </div>
                 <div class="details">
-                    <h5 class="card-title">Shop Title</h5>
-                    <p class="card-text">City</p>
+                    <h5 class="card-title">{{shop.name}}</h5>
+                    <p class="card-text">{{shop.city}}</p>
                     <button type="button" class="btn btn-dark" (click)="manageView()">View Shop Details</button>
                 </div>
 
             </div>
+            <!-- View more -->
+
+
+
+
+
+            <!-- View more details card -->
+            <div *ngIf="viewMore">
+
+
+
+                <div class="view-more-card-container">
+
+                    <div class="view-more-icons">
+                        <div>
+                            <mat-icon>
+                                <span class="material-symbols-outlined" (click)="handleSubmitButton()"
+                                    (click)="handleEditButton()">
+                                    edit
+                                </span>
+                            </mat-icon>
+                        </div>
+
+                        <div>
+                            <mat-icon>
+                                <span class="material-symbols-outlined" (click)="manageView()">
+                                    close
+                                </span>
+                            </mat-icon>
+                        </div>
+
+
+                    </div>
+
+                    <div class="view-more-image-container">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3443/3443338.png" alt=""
+                            class="view-more-shop-image">
+                    </div>
+
+                    <div class="view-more-form1-container">
+                        <form class="example-form">
+                            <div>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Shop Name</mat-label>
+                                    <input matInput placeholder="" value={{shop.name}} [readonly]="readOnlyMode">
+                                </mat-form-field>
+                            </div>
+
+                            <div>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Shop Id</mat-label>
+                                    <input matInput placeholder="" value={{this.shopList.indexOf(shop)}}
+                                        [readonly]="readOnlyMode">
+                                </mat-form-field>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="view-more-form2-container">
+
+                        <form class="example-form2">
+                            <div>
+                                <mat-form-field class="example-full-width-form2">
+                                    <mat-label>City</mat-label>
+                                    <input matInput placeholder="" value="Trivandrum" [readonly]="readOnlyMode">
+                                </mat-form-field>
+                            </div>
+
+                            <div>
+                                <mat-form-field class="example-full-width-form2">
+                                    <mat-label>Address</mat-label>
+                                    <input matInput placeholder="" value="Gayathri Building, Technopark phase I"
+                                        [readonly]="readOnlyMode">
+                                </mat-form-field>
+                            </div>
+
+                            <div>
+                                <mat-form-field class="example-full-width-form2">
+                                    <mat-label>Contact</mat-label>
+                                    <input matInput placeholder="" value="83027398723" [readonly]="readOnlyMode">
+                                </mat-form-field>
+                            </div>
+                        </form>
+
+                    </div>
+
+                    <div *ngIf="submitButton" class="view-more-submit">
+                        <button type="button" class="btn btn-dark">Submit</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
         </div>
     </div>
 
+    <!-- Add new shop  -->
 
+    <div *ngIf="addNewShop">
+        <div class="addShop-card-container">
 
-
-    <!-- View more details card -->
-    <div *ngIf="viewMore">
-
-
-
-        <div class="view-more-card-container">
-
-            <div class="view-more-icons">
-                <div>
+            <div class="add-shop-icons-div">
+                <div class="add-shop-icon">
                     <mat-icon>
-                        <span class="material-symbols-outlined" (click)="handleSubmitButton()" (click)="handleEditButton()">
-                            edit
-                        </span>
-                    </mat-icon>
-                </div>
-
-                <div>
-                    <mat-icon>
-                        <span class="material-symbols-outlined" (click)="manageView()">
+                        <span class="material-symbols-outlined" (click)="handleAddShopClose()">
                             close
                         </span>
                     </mat-icon>
@@ -62,23 +158,26 @@
 
             </div>
 
-            <div class="view-more-image-container">
-                <img src="https://cdn-icons-png.flaticon.com/512/3443/3443338.png" alt="" class="view-more-shop-image">
+            <div class="addShop-file-input-container">
+
+                <input placeholder="" type="file" value="" class="addShop-file-input" [(ngModel)]="formData.image"
+                    name="image">
+
             </div>
 
-            <div class="view-more-form1-container">
+            <div class="addShop-form1-container">
                 <form class="example-form">
-                    <div>
-                        <mat-form-field class="example-full-width">
+                    <div class="addShop-form-feild-container">
+                        <mat-form-field class="addShop-form-feild">
                             <mat-label>Shop Name</mat-label>
-                            <input matInput placeholder="" value="Pepper" [readonly]="readOnlyMode">
+                            <input matInput placeholder="" value="" [(ngModel)]="formData.name" name="name">
                         </mat-form-field>
                     </div>
 
-                    <div>
-                        <mat-form-field class="example-full-width">
-                            <mat-label>Shop Id</mat-label>
-                            <input matInput placeholder="" value="61930918" [readonly]="readOnlyMode">
+                    <div class="addShop-form-feild-container">
+                        <mat-form-field class="addShop-form-feild">
+                            <mat-label>City</mat-label>
+                            <input matInput placeholder="" value="" [(ngModel)]="formData.city" name="city">
                         </mat-form-field>
                     </div>
                 </form>
@@ -86,33 +185,33 @@
 
             <div class="view-more-form2-container">
 
-                <form class="example-form2">
-                    <div>
-                        <mat-form-field class="example-full-width-form2">
+                <form class="addShop-form2">
+                    <!-- <div >
+                        <mat-form-field class="addShop-form2-feild">
                             <mat-label>City</mat-label>
-                            <input matInput placeholder="" value="Trivandrum" [readonly]="readOnlyMode">
+                            <input matInput placeholder="" value="" >
                         </mat-form-field>
-                    </div>
+                    </div> -->
 
                     <div>
-                        <mat-form-field class="example-full-width-form2">
+                        <mat-form-field class="addShop-form2-feild">
                             <mat-label>Address</mat-label>
-                            <input matInput placeholder="" value="Gayathri Building, Technopark phase I" [readonly]="readOnlyMode">
+                            <input matInput placeholder="" value="" [(ngModel)]="formData.address" name="address">
                         </mat-form-field>
                     </div>
 
                     <div>
-                        <mat-form-field class="example-full-width-form2">
+                        <mat-form-field class="addShop-form2-feild">
                             <mat-label>Contact</mat-label>
-                            <input matInput placeholder=""  value="83027398723" [readonly]="readOnlyMode">
+                            <input matInput placeholder="" value="" [(ngModel)]="formData.phone" name="phone">
                         </mat-form-field>
                     </div>
                 </form>
 
             </div>
 
-            <div *ngIf="submitButton" class="view-more-submit">
-                <button type="button" class="btn btn-dark">Submit</button>
+            <div class="addShop-submit">
+                <button type="button" class="btn btn-dark" (click)="handleAddShopSubmit()">Add Shop</button>
             </div>
 
         </div>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component,OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {  
 
-  constructor(){
+  constructor(private http:HttpClient,private dataService:DataService){
   }
 
 
@@ -15,11 +17,35 @@ export class HomeComponent {
   viewMore=false
   submitButton=false
   readOnlyMode=true
+  addNewShop=false
+
+  formData={
+    name:'',
+    city:'',
+    image:'',
+    address:'',
+    phone:''
+  }
+
+  shopList:any;
+
+
+  ngOnInit(): void{
+     this.dataService.handleFetch().subscribe((data)=>{
+      this.shopList=data
+      console.log(this.shopList)
+     })
+    
+  }
 
   manageView=()=>{
     this.viewMore=!this.viewMore
     console.log(this.viewMore)
 
+  }
+
+  public getShops(){
+    this.http.get('')
   }
 
   handleSubmitButton=()=>{
@@ -28,6 +54,14 @@ export class HomeComponent {
 
   handleEditButton=()=>{
     this.readOnlyMode=!this.readOnlyMode
+  }
+
+  handleAddShopClose=()=>{
+    this.addNewShop=!this.addNewShop
+  }
+
+  handleAddShopSubmit=()=>{
+    console.log(this.formData)
   }
 
 }

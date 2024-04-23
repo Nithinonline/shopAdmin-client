@@ -24,8 +24,10 @@ export class LoginComponent {
 
 
   public loginMethod(){
-    this.http.post('http://127.0.0.1:8000/api/auth/login/',this.formData).subscribe((data)=>{
+    this.http.post('http://127.0.0.1:8000/api/auth/login/',this.formData).subscribe((data:any)=>{
       console.log(data)
+      const token=data.token
+      localStorage.setItem('token',token)
       this.router.navigate(['/home'])
     })
   }

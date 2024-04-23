@@ -50,8 +50,18 @@ align-items: flex-end;
   }
    
 }
+.brand-div{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    
+}
+
+.logout-symbol-div{
+    margin-right: 30px;
+}
 .navbar-brand{
-    margin-left: 80px;
+    margin-left: 5px;
 }
 
 // .view-more-card-container{
@@ -140,4 +150,71 @@ align-items: flex-end;
     display: flex;
     justify-content: center;
     padding: 10px;
+}
+
+
+
+
+.addShop-card-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 40vw;
+    min-width: 380px;
+    aspect-ratio: 1/1;
+    background-color: #FFFFF7;
+    border-radius: 10px;
+    z-index: 9999; 
+    padding: 10px;
+}
+.addShop-file-input{
+    width: 150px;
+    
+}
+.addShop-file-input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-style: dashed;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.addShop-form1-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.addShop-form-feild{
+    width: 80%;
+}
+.addShop-form-feild-container{
+    display: flex;
+    justify-content: center ;
+}
+.addShop-form2-feild{
+    width: 34vw;
+    min-width: 310px;
+}
+.add-shop-icon{
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+}
+
+.add-shop-icons-div{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addShop-submit{
+  
 }
