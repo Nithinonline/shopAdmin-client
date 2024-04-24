@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component,OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
@@ -7,61 +7,77 @@ import { DataService } from '../data.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {  
+export class HomeComponent {
 
-  constructor(private http:HttpClient,private dataService:DataService){
+  constructor(private http: HttpClient, private dataService: DataService) {}
+
+  addNewShop = false;
+  formData = {
+    name: '',
+    city: '',
+    address: '',
+    phone: ''
+  };
+  image: File | null = null; 
+
+  shopList: any;
+  singleShop: any;
+  isClosed: boolean = false;
+
+  ngOnInit(): void {
+    this.dataService.handleFetch().subscribe((data) => {
+      this.shopList = data;
+      console.log(this.shopList);
+      console.log(this.isClosed);
+    });
   }
 
-
-  cards=[1,2,3,4,5,6,7,8,9]
-  viewMore=false
-  submitButton=false
-  readOnlyMode=true
-  addNewShop=false
-
-  formData={
-    name:'',
-    city:'',
-    image:'',
-    address:'',
-    phone:''
+  handleAddShopClose = () => {
+    this.addNewShop = !this.addNewShop;
   }
 
-  shopList:any;
+  handleAddShopSubmit = () => {
+    console.log(this.formData);
 
+    const token = localStorage.getItem('token');
 
-  ngOnInit(): void{
-     this.dataService.handleFetch().subscribe((data)=>{
-      this.shopList=data
-      console.log(this.shopList)
-     })
-    
+    if (token) {
+      const headers = new HttpHeaders().set('Authorization', `token ${token}`);
+      const formData = new FormData();
+      formData.append('name', this.formData.name);
+      formData.append('city', this.formData.city);
+      formData.append('address', this.formData.address);
+      formData.append('phone', this.formData.phone);
+      if (this.image) {
+        formData.append('image', this.image); 
+      }
+
+      this.http.post('http://127.0.0.1:8000/api/create/', formData, { headers }).subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (error) => {
+          console.error('Error creating shop:', error);
+        }
+      );
+    } else {
+      console.error('Token not found in localStorage');
+    }
   }
 
-  manageView=()=>{
-    this.viewMore=!this.viewMore
-    console.log(this.viewMore)
-
+  handleViewMoreComponent = (shop: any) => {
+    this.singleShop = shop;
   }
 
-  public getShops(){
-    this.http.get('')
+  handleViewMoreButton = (isClosed: any) => {
+    this.isClosed = !this.isClosed;
+    console.log(this.isClosed);
   }
 
-  handleSubmitButton=()=>{
-    this.submitButton=!this.submitButton
+  handleImageInput(event: any) {
+    const files = event.target.files;
+    if (files.length > 0) {
+      this.image = files[0];
+    }
   }
-
-  handleEditButton=()=>{
-    this.readOnlyMode=!this.readOnlyMode
-  }
-
-  handleAddShopClose=()=>{
-    this.addNewShop=!this.addNewShop
-  }
-
-  handleAddShopSubmit=()=>{
-    console.log(this.formData)
-  }
-
 }

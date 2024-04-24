@@ -13,12 +13,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DataService } from './data.service';
+import { MoreDetailsCardComponent } from './more-details-card/more-details-card.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
     HomeComponent,
+    MoreDetailsCardComponent,
     
   ],
   imports: [

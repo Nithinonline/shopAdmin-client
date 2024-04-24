@@ -46,7 +46,7 @@ align-items: flex-end;
     align-items: flex-end;
   .btn{
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-end;
   }
    
 }
@@ -110,6 +110,7 @@ align-items: flex-end;
     padding: 10px;
     
 }
+
 .view-more-form2-container{
     display: flex;
     justify-content: center;
@@ -203,7 +204,7 @@ align-items: flex-end;
 }
 .add-shop-icon{
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: flex-end;
 }
 
@@ -215,6 +216,3 @@ align-items: flex-end;
     justify-content: flex-end;
 }
 
-.addShop-submit{
-  
-}

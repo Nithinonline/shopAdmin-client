@@ -1,0 +1,221 @@
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  
+}
+
+.card {
+    width: 40%;
+    margin: 10px; 
+    // background-color: #03A9F4;
+    background-color: #FFFFF7 ;
+    min-width: 350px;
+    
+}
+.card-body{
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 2fr;
+    
+    
+}
+.shop-icon{
+    width: 70px;
+    margin: 10px;
+    margin-left: 20px;
+}
+.btn{
+display: flex;
+align-items: flex-end;
+}
+.details{
+    display: grid;
+    justify-content: center;
+}
+.navbar{
+    position: sticky;
+}
+.add-button-container{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin-right: 50px;
+    align-items: flex-end;
+  .btn{
+      display: flex;
+      justify-content: flex-end;
+  }
+   
+}
+.brand-div{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    
+}
+
+.logout-symbol-div{
+    margin-right: 30px;
+}
+.navbar-brand{
+    margin-left: 5px;
+}
+
+// .view-more-card-container{
+//     position: absolute;
+//     width: 30vw;
+//     aspect-ratio: 1/1;
+//     background-color: #FFFFF7;
+//     border-radius: 10px;
+//     margin-left: 35vw;
+//     margin-right: 35vw;
+//     margin-bottom: 50vh;
+   
+// }
+
+.view-more-card-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 30vw;
+    min-width: 380px;
+    aspect-ratio: 1/1;
+    background-color: #FFFFF7;
+    border-radius: 10px;
+    z-index: 9999; 
+}
+
+
+.view-more-shop-image{
+    width:150px;
+    aspect-ratio: 1/1;
+    
+    
+}
+
+.view-more-image-container{
+    
+   margin-left: 10px;
+}
+.view-more-form1-container{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
+    
+}
+.view-more-form2-container{
+    display: flex;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    
+   
+ 
+}
+
+.form-group-2{
+   color: #FFFFF7;
+   margin-left: 30px;
+   display: flex;
+   justify-content: center;
+   margin-top: 10px;
+}
+
+.example-full-width-form2{
+    width: 25vw;
+    min-width: 240px;
+}
+.example-form2{
+    margin-top: 10px;
+}
+.view-more-icons{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.view-more-submit{
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+
+
+.addShop-card-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 40vw;
+    min-width: 380px;
+    aspect-ratio: 1/1;
+    background-color: #FFFFF7;
+    border-radius: 10px;
+    z-index: 9999; 
+    padding: 10px;
+}
+.addShop-file-input{
+    width: 150px;
+    
+}
+.addShop-file-input-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-style: dashed;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.addShop-form1-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.addShop-form-feild{
+    width: 80%;
+}
+.addShop-form-feild-container{
+    display: flex;
+    justify-content: center ;
+}
+.addShop-form2-feild{
+    width: 34vw;
+    min-width: 310px;
+}
+.add-shop-icon{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.add-shop-icons-div{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addShop-submit{
+  
+}
