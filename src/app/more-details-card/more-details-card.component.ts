@@ -17,6 +17,7 @@ export class MoreDetailsCardComponent {
   }
   readOnlyMode = true
   submitButton = false
+  imageEdit=false
 
   formData = {
     name: '',
@@ -48,7 +49,16 @@ export class MoreDetailsCardComponent {
     this.formData.city = newCity.value
     this.formData.address = newAddress.value
     this.formData.phone = newPhone.value
-    console.log(this.formData)
+  }
+
+handleImageEdit(){
+  this.imageEdit=!this.imageEdit
+}
+
+  handleImageInput(event:any){
+    const files=event.target.files
+      this.image=files[0]
+      console.log(this.image)
   }
 
   handleUpdateRequest = () => {
@@ -79,6 +89,16 @@ export class MoreDetailsCardComponent {
     } else {
       console.error('Token not found in localStorage');
     }
+  }
+
+  handleDelete=(id:any)=>{
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders().set('Authorization', `token ${token}`);
+  this.http.delete(`http://127.0.0.1:8000/api/delete/${id}`,{headers}).subscribe((data)=>{
+    console.log(data)
+    console.log(`Shop with id:${id} deleted successfully`)
+    window.location.reload()
+  })
   }
 
 

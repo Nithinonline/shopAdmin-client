@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
@@ -8,8 +9,9 @@ import { DataService } from '../data.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  tokenisActive: any;
 
-  constructor(private http: HttpClient, private dataService: DataService) {}
+  constructor(private http: HttpClient, private dataService: DataService,private router:Router) {}
 
   addNewShop = false;
   formData = {
@@ -25,11 +27,18 @@ export class HomeComponent {
   isClosed: boolean = false;
 
   ngOnInit(): void {
-    this.dataService.handleFetch().subscribe((data) => {
-      this.shopList = data;
-      console.log(this.shopList);
-      console.log(this.isClosed);
-    });
+    this.handleGetToken();
+    if(this.tokenisActive){
+      this.dataService.handleFetch().subscribe((data) => {
+        this.shopList = data;
+        console.log(this.shopList);
+        console.log(this.isClosed);
+      });
+    }
+    else{
+      this.router.navigate(["/login"])
+    }
+   
   }
 
   handleAddShopClose = () => {
@@ -85,4 +94,13 @@ export class HomeComponent {
     this.isClosed=false
     console.log(this.isClosed)
   }
+  handleGetToken=()=>{
+     this.tokenisActive=localStorage.getItem('token')
+     return this.tokenisActive
+  } 
+  handleLogout(){
+    localStorage.clear();
+    window.location.reload()
+  }
 }
+

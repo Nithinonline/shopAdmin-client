@@ -6,11 +6,16 @@
 
 
         <div class="view-more-icons">
-            <div (click)="handleEditButton()" (click)="handleUpdateButton()">
-                <mat-icon>
+            <div>
+                <mat-icon (click)="handleEditButton()" (click)="handleUpdateButton()">
                     <span class="material-symbols-outlined">
                         edit
                     </span>
+                </mat-icon>
+                <mat-icon>
+                    <span class="material-symbols-outlined" (click)="handleDelete(data.id)">
+                        delete
+                        </span>
                 </mat-icon>
             </div>
 
@@ -24,12 +29,22 @@
 
 
         </div>
+          
 
-        <div class="view-more-image-container">
-            <img src="http://127.0.0.1:8000{{data.image}}" alt=""
+        <div *ngIf="!imageEdit" class="view-more-image-container">
+            <div>
+                <img src="http://127.0.0.1:8000{{data.image}}" alt=""
                 class="view-more-shop-image">
+              <p *ngIf="submitButton" (click)="handleImageEdit()" class="edit-image-p">*Change the image</p>
+            </div>
         </div>
 
+        <div *ngIf="imageEdit" class="addShop-file-input-container">
+            <div>
+                <input placeholder="" type="file" value="" class="addShop-file-input" name="image"
+                (change)="handleImageInput($event)">
+            </div>
+        </div>
         <div class="view-more-form1-container">
             <form class="example-form">
                 <div>
@@ -43,7 +58,7 @@
                     <mat-form-field class="example-full-width">
                         <mat-label>Shop Id</mat-label>
                         <input matInput placeholder="" value={{data.id}}
-                            [readonly]="readOnlyMode" class="form1-input" name="id" #id >
+                            [readonly]="true" class="form1-input" name="id" #id >
                     </mat-form-field>
                 </div>
             </form>

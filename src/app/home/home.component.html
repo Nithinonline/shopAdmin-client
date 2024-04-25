@@ -11,8 +11,8 @@
                 <span class="navbar-brand mb-0 ml-5 h1">Shop Manager</span>
             </div>
             <div class="logout-symbol-div">
-                <mat-icon>
-                    <span class="logout-symbol-outlined">
+                <mat-icon title="Logout">
+                    <span class="logout-symbol-outlined" (click)="handleLogout()">
                         logout
                     </span>
                 </mat-icon>
@@ -34,8 +34,9 @@
             [ngStyle]="{ 'background-color': addNewShop || isClosed ? 'rgba(255, 255, 247, 0.5)' : ''}">
             <div class="card-body">
 
-                <div class="image" >
-                    <img src="http://127.0.0.1:8000{{shop.image}}" alt="" class="shop-icon"  [ngStyle]="{ 'opacity': addNewShop || isClosed ? '0.4' : ''}">
+                <div class="image">
+                    <img src="http://127.0.0.1:8000{{shop.image}}" alt="" class="shop-icon"
+                        [ngStyle]="{ 'opacity': addNewShop || isClosed ? '0.4' : ''}">
                 </div>
 
                 <div class="details-div">
@@ -58,10 +59,6 @@
                 <app-more-details-card [data]="singleShop"
                     (handleIsClosed)="handleViewMoreButton($event)"></app-more-details-card>
             </div>
-
-
-
-
 
         </div>
     </div>
