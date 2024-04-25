@@ -64,17 +64,7 @@ align-items: flex-end;
     margin-left: 5px;
 }
 
-// .view-more-card-container{
-//     position: absolute;
-//     width: 30vw;
-//     aspect-ratio: 1/1;
-//     background-color: #FFFFF7;
-//     border-radius: 10px;
-//     margin-left: 35vw;
-//     margin-right: 35vw;
-//     margin-bottom: 50vh;
-   
-// }
+
 
 .view-more-card-container {
     display: grid;
@@ -127,6 +117,11 @@ align-items: flex-end;
    display: flex;
    justify-content: center;
    margin-top: 10px;
+}
+
+.example-full-width{
+   display: flex;
+   max-width: 190px;
 }
 
 .example-full-width-form2{

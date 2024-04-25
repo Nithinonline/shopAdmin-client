@@ -21,7 +21,7 @@
     </div>
 
     <div class="add-button-container">
-        <button type="button" class="btn btn-light btn-lg btn-block" (click)="handleAddShopClose()">
+        <button type="button" class="btn btn-light btn-lg btn-block" (click)="handleAddShopClose()" (click)="handleIsClosedInAdd()">
             <mat-icon>
                 library_add
             </mat-icon>
@@ -34,11 +34,12 @@
             <div class="card-body">
 
                 <div class="image">
-                    <img src="`http://127.0.0.1:8000 ${shop.image}`" alt="" class="shop-icon">
+                    <img src="http://127.0.0.1:8000{{shop.image}}" alt="" class="shop-icon">
                 </div>
                 <div class="details">
                     <h5 class="card-title">{{shop.name}}</h5>
                     <p class="card-text">{{shop.city}}</p>
+                    <p class="card-text">Shop ID: {{shop.id}}</p>
                     <button type="button" class="btn btn-dark" (click)="handleViewMoreComponent(shop)" (click)="handleViewMoreButton($event)" >View Shop Details</button>
                 </div>
 
@@ -51,7 +52,7 @@
             </div>
 
 
-            <!-- View more details card -->
+        
          
 
         </div>
@@ -102,13 +103,7 @@
             <div class="view-more-form2-container">
 
                 <form class="addShop-form2">
-                    <!-- <div >
-                        <mat-form-field class="addShop-form2-feild">
-                            <mat-label>City</mat-label>
-                            <input matInput placeholder="" value="" >
-                        </mat-form-field>
-                    </div> -->
-
+                  
                     <div>
                         <mat-form-field class="addShop-form2-feild">
                             <mat-label>Address</mat-label>
@@ -127,7 +122,9 @@
             </div>
 
             <div class="addShop-submit">
-                <button type="button" class="btn btn-dark" (click)="handleAddShopSubmit()">Add Shop</button>
+                <div class="addShop-button"> 
+                    <button type="button" class="btn btn-dark" (click)="handleAddShopSubmit()">Add Shop</button>
+                </div>
             </div>
 
         </div>

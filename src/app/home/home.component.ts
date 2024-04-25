@@ -55,6 +55,7 @@ export class HomeComponent {
       this.http.post('http://127.0.0.1:8000/api/create/', formData, { headers }).subscribe(
         (data) => {
           console.log(data);
+          window.location.reload();
         },
         (error) => {
           console.error('Error creating shop:', error);
@@ -79,5 +80,9 @@ export class HomeComponent {
     if (files.length > 0) {
       this.image = files[0];
     }
+  }
+  handleIsClosedInAdd(){
+    this.isClosed=false
+    console.log(this.isClosed)
   }
 }

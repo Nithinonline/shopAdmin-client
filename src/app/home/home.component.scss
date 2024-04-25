@@ -18,13 +18,20 @@
     display: grid;
     justify-content: space-between;
     grid-template-columns: 1fr 2fr;
-    
-    
+    align-items: center;
 }
+
+.card-text{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
 .shop-icon{
-    width: 70px;
+    width: 100%;
+    aspect-ratio: 1/1;
     margin: 10px;
-    margin-left: 20px;
+    object-fit: cover;
+    
 }
 .btn{
 display: flex;
@@ -64,17 +71,7 @@ align-items: flex-end;
     margin-left: 5px;
 }
 
-// .view-more-card-container{
-//     position: absolute;
-//     width: 30vw;
-//     aspect-ratio: 1/1;
-//     background-color: #FFFFF7;
-//     border-radius: 10px;
-//     margin-left: 35vw;
-//     margin-right: 35vw;
-//     margin-bottom: 50vh;
-   
-// }
+
 
 .view-more-card-container {
     display: grid;
@@ -99,10 +96,7 @@ align-items: flex-end;
     
 }
 
-.view-more-image-container{
-    
-   
-}
+
 .view-more-form1-container{
     justify-content: center;
     display: flex;
@@ -204,8 +198,8 @@ align-items: flex-end;
 }
 .add-shop-icon{
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    
+    justify-content: center;
 }
 
 .add-shop-icons-div{
@@ -215,4 +209,13 @@ align-items: flex-end;
     display: flex;
     justify-content: flex-end;
 }
+
+.addShop-submit{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    justify-content: center;
+  
+}
+
 
