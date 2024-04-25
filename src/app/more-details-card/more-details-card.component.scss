@@ -143,9 +143,11 @@ align-items: flex-end;
     width: 100%;
     grid-column-start: 1;
     grid-column-end: 3;
-    display: flex;
+    display: grid;
     justify-content: center;
     padding: 10px;
+
+   
 }
 
 
@@ -211,6 +213,3 @@ align-items: flex-end;
     justify-content: flex-end;
 }
 
-.addShop-submit{
-  
-}

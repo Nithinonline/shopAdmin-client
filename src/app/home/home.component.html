@@ -14,14 +14,15 @@
                 <mat-icon>
                     <span class="logout-symbol-outlined">
                         logout
-                        </span>
+                    </span>
                 </mat-icon>
             </div>
         </nav>
     </div>
 
     <div class="add-button-container">
-        <button type="button" class="btn btn-light btn-lg btn-block" (click)="handleAddShopClose()" (click)="handleIsClosedInAdd()">
+        <button type="button" class="btn btn-light btn-lg btn-block" (click)="handleAddShopClose()"
+            (click)="handleIsClosedInAdd()">
             <mat-icon>
                 library_add
             </mat-icon>
@@ -33,27 +34,34 @@
             [ngStyle]="{ 'background-color': addNewShop || isClosed ? 'rgba(255, 255, 247, 0.5)' : ''}">
             <div class="card-body">
 
-                <div class="image">
-                    <img src="http://127.0.0.1:8000{{shop.image}}" alt="" class="shop-icon">
+                <div class="image" >
+                    <img src="http://127.0.0.1:8000{{shop.image}}" alt="" class="shop-icon"  [ngStyle]="{ 'opacity': addNewShop || isClosed ? '0.4' : ''}">
                 </div>
-                <div class="details">
-                    <h5 class="card-title">{{shop.name}}</h5>
-                    <p class="card-text">{{shop.city}}</p>
-                    <p class="card-text">Shop ID: {{shop.id}}</p>
-                    <button type="button" class="btn btn-dark" (click)="handleViewMoreComponent(shop)" (click)="handleViewMoreButton($event)" >View Shop Details</button>
+
+                <div class="details-div">
+                    <div class="details">
+                        <h5 class="card-title">{{shop.name}}</h5>
+                        <p class="card-text">{{shop.city}}</p>
+                        <p class="card-text">Shop ID: {{shop.id}}</p>
+                        <button type="button" class="btn btn-dark View-More-button"
+                            (click)="handleViewMoreComponent(shop)" (click)="handleViewMoreButton($event)">View Shop
+                            Details</button>
+                    </div>
                 </div>
+
 
             </div>
             <!-- View more -->
 
             <div *ngIf="isClosed">
-               
-                <app-more-details-card [data]="singleShop" (handleIsClosed)="handleViewMoreButton($event)"></app-more-details-card>
+
+                <app-more-details-card [data]="singleShop"
+                    (handleIsClosed)="handleViewMoreButton($event)"></app-more-details-card>
             </div>
 
 
-        
-         
+
+
 
         </div>
     </div>
@@ -77,8 +85,8 @@
 
             <div class="addShop-file-input-container">
 
-                <input placeholder="" type="file" value="" class="addShop-file-input"
-                    name="image" (change)="handleImageInput($event)">
+                <input placeholder="" type="file" value="" class="addShop-file-input" name="image"
+                    (change)="handleImageInput($event)">
 
             </div>
 
@@ -103,7 +111,7 @@
             <div class="view-more-form2-container">
 
                 <form class="addShop-form2">
-                  
+
                     <div>
                         <mat-form-field class="addShop-form2-feild">
                             <mat-label>Address</mat-label>
@@ -122,7 +130,7 @@
             </div>
 
             <div class="addShop-submit">
-                <div class="addShop-button"> 
+                <div class="addShop-button">
                     <button type="button" class="btn btn-dark" (click)="handleAddShopSubmit()">Add Shop</button>
                 </div>
             </div>

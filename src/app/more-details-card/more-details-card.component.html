@@ -35,7 +35,7 @@
                 <div>
                     <mat-form-field class="example-full-width">
                         <mat-label>Shop Name</mat-label>
-                        <input matInput placeholder="" value={{data.name}} [readonly]="readOnlyMode" class="form1-input" >
+                        <input matInput placeholder="" value={{data.name}} [readonly]="readOnlyMode" class="form1-input" #name >
                     </mat-form-field>
                 </div>
 
@@ -43,7 +43,7 @@
                     <mat-form-field class="example-full-width">
                         <mat-label>Shop Id</mat-label>
                         <input matInput placeholder="" value={{data.id}}
-                            [readonly]="readOnlyMode" class="form1-input">
+                            [readonly]="readOnlyMode" class="form1-input" name="id" #id >
                     </mat-form-field>
                 </div>
             </form>
@@ -55,7 +55,7 @@
                 <div>
                     <mat-form-field class="example-full-width-form2">
                         <mat-label>City</mat-label>
-                        <input matInput placeholder="" value="{{data.city}}" [readonly]="readOnlyMode">
+                        <input matInput placeholder="" value="{{data.city}}" [readonly]="readOnlyMode" name="city" #city>
                     </mat-form-field>
                 </div>
 
@@ -63,14 +63,14 @@
                     <mat-form-field class="example-full-width-form2">
                         <mat-label>Address</mat-label>
                         <input matInput placeholder="" value={{data.address}}
-                            [readonly]="readOnlyMode">
+                            [readonly]="readOnlyMode" name="address" #address>
                     </mat-form-field>
                 </div>
 
                 <div>
                     <mat-form-field class="example-full-width-form2">
                         <mat-label>Contact</mat-label>
-                        <input matInput placeholder="" value={{data.phone}} [readonly]="readOnlyMode">
+                        <input matInput placeholder="" value={{data.phone}} [readonly]="readOnlyMode" name="phone" #phone>
                     </mat-form-field>
                 </div>
             </form>
@@ -78,7 +78,7 @@
         </div>
 
         <div *ngIf="submitButton" class="view-more-submit">
-            <button type="button" class="btn btn-dark">Update</button>
+            <button type="button" class="btn btn-dark " (click)="handleUpdateShop(name,id,address,city,phone)" (click)="handleUpdateRequest()">Update</button>
         </div>
 
     </div>
