@@ -22,7 +22,7 @@ export class HomeComponent {
   };
   image: File | null = null; 
 
-  shopList: any;
+  fetchedData: any;
   singleShop: any;
   isClosed: boolean = false;
 
@@ -30,8 +30,8 @@ export class HomeComponent {
     this.handleGetToken();
     if(this.tokenisActive){
       this.dataService.handleFetch().subscribe((data) => {
-        this.shopList = data;
-        console.log(this.shopList);
+        this.fetchedData = data;
+        console.log(this.fetchedData);
         console.log(this.isClosed);
       });
     }
@@ -101,6 +101,31 @@ export class HomeComponent {
   handleLogout(){
     localStorage.clear();
     window.location.reload()
+  }
+  
+  handlePaginationNext(){
+    if(this.fetchedData.next){
+      this.dataService.getUrl=this.fetchedData.next
+      console.log(this.dataService.getUrl)
+      this.ngOnInit()
+    }
+    else{
+      console.log("There is no next page")
+    }
+    
+  }
+
+   
+  handlePaginationPrevious(){
+    if(this.fetchedData.previous){
+      this.dataService.getUrl=this.fetchedData.previous
+      console.log(this.dataService.getUrl)
+      this.ngOnInit()
+    }
+    else{
+      console.log("There is no previous page")
+    }
+    
   }
 }
 

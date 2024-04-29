@@ -4,6 +4,7 @@
     margin-top: 5vh; 
     justify-content: center;
     width: 60vw;
+    min-width: 400px;
     background-color:#FFFFF7;
     padding: 10vh;
     border-radius: 10px;
@@ -17,6 +18,7 @@
     }
    .form-group{
     margin-top: 2vh;
+    min-width: 200px;
    }
    .row-div{
     display: flex;
