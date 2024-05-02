@@ -10,36 +10,41 @@ import { SocialAuthService } from '@abacritt/angularx-social-login';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  isLoggedIn: any=false;
 
-  constructor(private http:HttpClient,private router:Router, private authService:AuthService,private socialAuthService:SocialAuthService){
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService, private socialAuthService: SocialAuthService) {
 
   }
 
-  formData={
-    username:'',
-    password:''
+  formData = {
+    username: '',
+    password: ''
   }
-  user:any;
-  loggedIn:any;
-  token:any;
+  user: any; 
+  loggedIn: any;
+  token: any;
 
-  submitForm(form:any){
+  submitForm(form: any) {
     console.log(this.formData);
   }
 
 
-  public loginMethod(){
-    this.http.post('http://127.0.0.1:8000/api/auth/login/',this.formData).subscribe((data:any)=>{
+  public loginMethod() {
+    this.http.post('http://127.0.0.1:8000/api/auth/login/', this.formData).subscribe((data: any) => {
+      // const token = data.token
       console.log(data)
-      const token=data.token
-      localStorage.setItem('token',token)
+      // localStorage.setItem('token', token)
       this.router.navigate(['/home'])
     })
   }
 
-  public ssoLoginMethod(email: any){
-    this.http.post('http://127.0.0.1:8000/api/auth/login/sso/',{email:email}).subscribe((data:any)=>{
+  ssoLoginMethod(email: any) {
+    this.http.post('http://127.0.0.1:8000/api/auth/login/sso/', { email: email }).subscribe((data: any) => {
       console.log(data.token)
+      this.token=data.token
+      localStorage.setItem('token',this.token)
+      this.isLoggedIn=true
+      this.router.navigate(['/home'])
     })
   }
 
@@ -49,14 +54,14 @@ export class LoginComponent {
       this.user = user;
       this.loggedIn = (user != null);
       console.log(user)
-      const email=user.email
-      this.ssoLoginMethod(email)
-      localStorage.setItem('token',this.token) 
-      this.router.navigate(['/home'])    
+      const email = user.email
+      if(!this.isLoggedIn){
+        this.ssoLoginMethod(email)
+      }
     },
-  (err)=>{
-    console.log(err)
-  });
+      (err) => {
+        console.log(err)
+      });
   }
 
 }
