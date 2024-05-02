@@ -24,9 +24,10 @@ export class MoreDetailsCardComponent {
     id: '',
     city: '',
     address: '',
-    phone: ''
+    phone: '',
   };
   image: File | null = null;
+  user:any=''
 
 
 
@@ -64,6 +65,7 @@ handleImageEdit(){
   handleUpdateRequest = () => {
 
     const token = localStorage.getItem('token');
+    this.user=localStorage.getItem('user')
 
     if (token) {
       const headers = new HttpHeaders().set('Authorization', `token ${token}`);
@@ -72,10 +74,12 @@ handleImageEdit(){
       formData.append('city', this.formData.city);
       formData.append('address', this.formData.address);
       formData.append('phone', this.formData.phone);
-      formData.append('id',this.formData.id)
+      formData.append('id',this.formData.id);
+      formData.append('user',this.user)
       if (this.image) {
         formData.append('image', this.image); 
       }
+      console.log(formData)
 
       this.http.patch(`http://127.0.0.1:8000/api/update/${this.formData.id}/`, formData, { headers }).subscribe(
         (data:any) => {

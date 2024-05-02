@@ -25,6 +25,7 @@ export class HomeComponent {
   fetchedData: any;
   singleShop: any;
   isClosed: boolean = false;
+  username:any;
 
   ngOnInit(): void {
     this.handleGetToken();
@@ -47,7 +48,7 @@ export class HomeComponent {
 
   handleAddShopSubmit = () => {
     console.log(this.formData);
-
+    this.username=localStorage.getItem('user')
     const token = localStorage.getItem('token');
 
     if (token) {
@@ -57,6 +58,7 @@ export class HomeComponent {
       formData.append('city', this.formData.city);
       formData.append('address', this.formData.address);
       formData.append('phone', this.formData.phone);
+      formData.append('user',this.username)
       if (this.image) {
         formData.append('image', this.image); 
       }
@@ -96,6 +98,7 @@ export class HomeComponent {
   }
   handleGetToken=()=>{
      this.tokenisActive=localStorage.getItem('token')
+     this.username=localStorage.getItem('user') || null
      return this.tokenisActive
   } 
   handleLogout(){

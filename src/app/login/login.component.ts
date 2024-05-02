@@ -31,16 +31,20 @@ export class LoginComponent {
 
   public loginMethod() {
     this.http.post('http://127.0.0.1:8000/api/auth/login/', this.formData).subscribe((data: any) => {
-      // const token = data.token
-      console.log(data)
-      // localStorage.setItem('token', token)
+      const token = data.token
+      const user=data.user
+      console.log(user)
+      localStorage.setItem('user',user.username)
+      localStorage.setItem('token', token)
       this.router.navigate(['/home'])
     })
   }
 
   ssoLoginMethod(email: any) {
     this.http.post('http://127.0.0.1:8000/api/auth/login/sso/', { email: email }).subscribe((data: any) => {
-      console.log(data.token)
+      const user=data.user
+      console.log(user)
+      localStorage.setItem('user',user.username)
       this.token=data.token
       localStorage.setItem('token',this.token)
       this.isLoggedIn=true

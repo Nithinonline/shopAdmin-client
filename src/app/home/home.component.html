@@ -10,12 +10,38 @@
 
                 <span class="navbar-brand mb-0 ml-5 h1">Shop Manager</span>
             </div>
+
             <div class="logout-symbol-div">
-                <mat-icon title="Logout">
+
+                <div class="navbar-profile-div">
+                    <div>
+                        <mat-icon>
+                            <span class="material-symbols-outlined">
+                                account_circle
+                            </span>
+                        </mat-icon>
+                    </div>
+                    <div>
+                        <h6>{{username}}</h6>
+                    </div>
+
+                    <div>
+                        <select name="" id="" class="logout-select" (change)="handleLogout()">
+                            <option value=""></option>
+                            <option value="logout" class="logout-option">Logout</option>
+                        </select>
+                    </div>
+
+
+
+
+                </div>
+
+                <!-- <mat-icon title="Logout">
                     <span class="logout-symbol-outlined" (click)="handleLogout()">
                         logout
                     </span>
-                </mat-icon>
+                </mat-icon> -->
             </div>
         </nav>
     </div>
@@ -40,16 +66,36 @@
                 </div>
 
                 <div class="details-div">
-                    <div class="details">
-                        <h5 class="card-title">{{shop.name}}</h5>
-                        <p class="card-text">{{shop.city}}</p>
-                        <p class="card-text">Shop ID: {{shop.id}}</p>
-                        <button type="button" class="btn btn-dark View-More-button"
-                            (click)="handleViewMoreComponent(shop)" (click)="handleViewMoreButton($event)">View Shop
-                            Details</button>
+                    <!-- <div class="details"> -->
+
+                    <div class="details-shop-innerdiv">
+                        <h5>Shop Name:</h5>
+                        <p class="card-text">{{shop.name}}</p>
                     </div>
+
+                    <div class="details-shop-innerdiv">
+                        <h5>City:</h5>
+                        <p class="card-text">{{shop.city}}</p>
+                    </div>
+
+                    <div class="details-shop-innerdiv">
+                        <h5>Shop ID:</h5>
+                        <p class="card-text">{{shop.id}}</p>
+                    </div>
+
+                    <div class="details-shop-innerdiv">
+                        <h5>Added By</h5>
+                        <h6 class="details-div-username">{{shop.user?shop.user:"N/A"}}</h6>
+                    </div>
+
+                    <!-- </div> -->
                 </div>
 
+                <div class="view-more-div">
+                    <button type="button" class="btn btn-dark View-More-button" (click)="handleViewMoreComponent(shop)"
+                        (click)="handleViewMoreButton($event)">View Shop
+                        Details</button>
+                </div>
 
             </div>
             <!-- View more -->
@@ -119,7 +165,8 @@
                     <div>
                         <mat-form-field class="addShop-form2-feild">
                             <mat-label>Contact</mat-label>
-                            <input type="number" matInput placeholder="" value="" [(ngModel)]="formData.phone" name="phone" >
+                            <input type="number" matInput placeholder="" value="" [(ngModel)]="formData.phone"
+                                name="phone">
                         </mat-form-field>
                     </div>
                 </form>
@@ -138,8 +185,9 @@
     </div>
 
     <div class="paginationButtons">
-        <button class="btn btn-dark pageButton" (click)="handlePaginationPrevious()"><< Prev.. Page</button>
-        <button class="btn btn-dark pageButton" (click)="handlePaginationNext()">Next Page >></button>
+        <button class="btn btn-dark pageButton" (click)="handlePaginationPrevious()">
+            << Prev.. Page</button>
+                <button class="btn btn-dark pageButton" (click)="handlePaginationNext()">Next Page >></button>
     </div>
 
 </div>

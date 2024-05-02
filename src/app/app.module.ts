@@ -14,10 +14,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DataService } from './data.service';
 import { MoreDetailsCardComponent } from './more-details-card/more-details-card.component';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import {
   GoogleLoginProvider,
 } from '@abacritt/angularx-social-login';
+import { MatOption, MatOptionModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import {
     LoginComponent,
     HomeComponent,
     MoreDetailsCardComponent,
+    
     
   ],
   imports: [
@@ -37,7 +41,10 @@ import {
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    SocialLoginModule
+    SocialLoginModule,
+    MatMenuModule,
+    MatSelectModule,
+   
   ],
   providers: [DataService, 
     {

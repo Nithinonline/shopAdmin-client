@@ -3,28 +3,38 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  
+    
 }
 
 .card {
     width: 100vw;
-    margin: 10px; 
     // background-color: #03A9F4;
-    background-color: #FFFFF7 ;
+    // background-color: #FFFFF7 ;
     min-width: 390px;
+    border: 1px solid black;
+    border-radius: 0;
     
 }
 .card-body{
     display: grid;
     justify-content: space-between;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     align-items: center;
     
+}
+.details-div{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    justify-content: space-between;
+    width: auto;
+    align-items: center;
 }
 
 .card-text{
     margin-top: 0;
     margin-bottom: 10px;
+    font-size: large;
 }
 
 .shop-icon{
@@ -38,19 +48,21 @@
 display: flex;
 align-items: flex-end;
 }
-.details-div{
-    display: flex;
-    justify-content: center;
-}
+
 .details{
     display: flex;
     flex-direction: column;
     justify-content:center ;
     margin-left: 20px;
     align-items: flex-start;
-    max-width: 200px;
     
 }
+
+.details-shop-innerdiv{
+    display: flex;
+    flex-direction: column;
+}
+
 .navbar{
     position: sticky;
 }
@@ -77,6 +89,10 @@ align-items: flex-end;
 
 .logout-symbol-div{
     margin-right: 30px;
+    justify-content: space-around;
+    align-items: center;
+    width: 150px;
+    display: flex;
 }
 .navbar-brand{
     margin-left: 5px;
@@ -232,6 +248,13 @@ align-items: flex-end;
 width: 155px;
 }
 
+.view-more-div{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}
+
 .image{
     width: 160px;
 }
@@ -265,8 +288,24 @@ width: 155px;
     -webkit-appearance: none;
     margin: 0;
 }
+.details-div-username{
+    font-size: 13px;
+}
+.navbar-profile-div{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin: 10px;
+    
+}
 
+.logout-select{
+    width: 20px;
+    border: none;
+}
 
+  
+  
 
 
 
