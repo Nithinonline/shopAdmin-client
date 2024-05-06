@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,6 +21,12 @@ import {
   GoogleLoginProvider,
 } from '@abacritt/angularx-social-login';
 import { MatOption, MatOptionModule } from '@angular/material/core';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+
+
 
 @NgModule({
   declarations: [
@@ -44,9 +50,11 @@ import { MatOption, MatOptionModule } from '@angular/material/core';
     SocialLoginModule,
     MatMenuModule,
     MatSelectModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
    
-  ],
-  providers: [DataService, 
+  ], 
+  providers: [DataService,provideAnimations(),
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
@@ -63,7 +71,8 @@ import { MatOption, MatOptionModule } from '@angular/material/core';
           console.error(err);
         }
       } as SocialAuthServiceConfig,
-    }
+    },
+   
   ],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

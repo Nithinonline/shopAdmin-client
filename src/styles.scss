@@ -33,6 +33,10 @@ $client-theme: mat.define-light-theme((
 // that you are using.
 @include mat.all-component-themes($client-theme);
 
+@import 'ngx-toastr/toastr';
+
+
+
 body{
     background-color: #25476A;
 }

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { SocialAuthService } from '@abacritt/angularx-social-login';
 export class LoginComponent {
   isLoggedIn: any=false;
 
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService, private socialAuthService: SocialAuthService) {
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService, private socialAuthService: SocialAuthService, private toastr: ToastrService) {
 
   }
 
@@ -37,6 +38,8 @@ export class LoginComponent {
       localStorage.setItem('user',user.username)
       localStorage.setItem('token', token)
       this.router.navigate(['/home'])
+      this.toastr.success('Login Successful');
+
     })
   }
 
@@ -49,6 +52,7 @@ export class LoginComponent {
       localStorage.setItem('token',this.token)
       this.isLoggedIn=true
       this.router.navigate(['/home'])
+      this.toastr.success('Login Successful');
     })
   }
 
