@@ -26,6 +26,7 @@ export class HomeComponent {
   singleShop: any;
   isClosed: boolean = false;
   username:any;
+  urlpath='http://127.0.0.1:8000/api/shops/'
 
   ngOnInit(): void {
     this.handleGetToken();
@@ -63,7 +64,7 @@ export class HomeComponent {
         formData.append('image', this.image); 
       }
 
-      this.http.post('http://127.0.0.1:8000/api/create/', formData, { headers }).subscribe(
+      this.http.post(this.urlpath, formData, { headers }).subscribe(
         (data) => {
           console.log(data);
           window.location.reload();

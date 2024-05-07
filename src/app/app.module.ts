@@ -25,6 +25,7 @@ import { MatOption, MatOptionModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -35,6 +36,7 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     HomeComponent,
     MoreDetailsCardComponent,
+    SidebarComponent,
     
     
   ],

@@ -9,7 +9,7 @@ export class DataService {
   constructor(private http:HttpClient) { }
 
   shopDetails:any;
-  getUrl:String="http://127.0.0.1:8000/api/all/"
+  getUrl:String="http://127.0.0.1:8000/api/shops/"
 
   ngOnInit(): void{
     this.handleFetch()

@@ -28,6 +28,7 @@ export class MoreDetailsCardComponent {
   };
   image: File | null = null;
   user:any=''
+  baseUrl='http://127.0.0.1:8000/api/shops/'
 
 
 
@@ -81,7 +82,7 @@ handleImageEdit(){
       }
       console.log(formData)
 
-      this.http.patch(`http://127.0.0.1:8000/api/update/${this.formData.id}/`, formData, { headers }).subscribe(
+      this.http.patch(`${this.baseUrl}${this.formData.id}/`, formData, { headers }).subscribe(
         (data:any) => {
           console.log(data);
           window.location.reload();
@@ -98,7 +99,7 @@ handleImageEdit(){
   handleDelete=(id:any)=>{
   const token = localStorage.getItem('token');
   const headers = new HttpHeaders().set('Authorization', `token ${token}`);
-  this.http.delete(`http://127.0.0.1:8000/api/delete/${id}`,{headers}).subscribe((data)=>{
+  this.http.delete(`${this.baseUrl}${id}`,{headers}).subscribe((data)=>{
     console.log(data)
     console.log(`Shop with id:${id} deleted successfully`)
     window.location.reload()

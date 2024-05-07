@@ -33,7 +33,7 @@
 
         <div *ngIf="!imageEdit" class="view-more-image-container">
             <div>
-                <img src="http://127.0.0.1:8000{{data.image}}" alt=""
+                <img src={{data.image}} alt=""
                 class="view-more-shop-image">
               <p *ngIf="submitButton" (click)="handleImageEdit()" class="edit-image-p">*Change the image</p>
             </div>
@@ -84,7 +84,7 @@
 
                 <div>
                     <mat-form-field class="example-full-width-form2">
-                        <mat-label>Contact</mat-label>
+                        <mat-label>Phone</mat-label>
                         <input matInput placeholder=""  type="number" class="no-spinners" value={{data.phone}} [readonly]="readOnlyMode" name="phone" #phone>
                     </mat-form-field>
                 </div>
