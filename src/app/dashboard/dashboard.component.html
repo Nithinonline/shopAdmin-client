@@ -1,0 +1,24 @@
+<div class="dashboard-container">
+    <table class="mapping-table">
+        <tr>
+            <th style="width:10%;">Image</th>
+            <th style="width:10%;">Shop Id</th>
+            <th style="width:15%;">Shop Name</th>
+            <th style="width:15%;">City</th>
+            <th style="width:20%;">Address</th>
+            <th style="width:15%;">Phone</th>
+            <th style="width:10%;"></th>
+
+        </tr>
+        
+        <tr *ngFor="let shop in fetchedData.results">
+            <td>{{shop.name}}</td>
+            <td>John</td>
+            <td>First Name</td>
+            <td>John</td>
+            <td>First Name</td>
+            <td>John</td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </table>
+</div>

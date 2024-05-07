@@ -26,6 +26,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarModule } from 'ng-cdbangular';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -37,7 +41,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HomeComponent,
     MoreDetailsCardComponent,
     SidebarComponent,
-    
+    DashboardComponent,
+    NavbarComponent,
     
   ],
   imports: [
@@ -54,6 +59,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MatSelectModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    SidebarModule,
+    CommonModule
+    
    
   ], 
   providers: [DataService,provideAnimations(),
