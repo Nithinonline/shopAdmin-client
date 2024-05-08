@@ -25,38 +25,7 @@ export class LoginComponent {
   loggedIn: any;
   token: any;
 
-  submitForm(form: any) {
-    console.log(this.formData);
-  }
-
-
-  public loginMethod() {
-    this.http.post('http://127.0.0.1:8000/api/auth/login/', this.formData).subscribe((data: any) => {
-      const token = data.token
-      const user=data.user
-      console.log(user)
-      localStorage.setItem('user',user.username)
-      localStorage.setItem('token', token)
-      this.router.navigate(['/home'])
-      this.toastr.success('Login Successful');
-
-    })
-  }
-
-  ssoLoginMethod(email: any) {
-    this.http.post('http://127.0.0.1:8000/api/auth/login/sso/', { email: email }).subscribe((data: any) => {
-      const user=data.user
-      console.log(user)
-      localStorage.setItem('user',user.username)
-      this.token=data.token
-      localStorage.setItem('token',this.token)
-      this.isLoggedIn=true
-      this.router.navigate(['/home'])
-      this.toastr.success('Login Successful');
-    })
-  }
-
-
+  
   ngOnInit() {
     this.socialAuthService.authState.subscribe((user) => {
       this.user = user;
@@ -71,5 +40,41 @@ export class LoginComponent {
         console.log(err)
       });
   }
+
+  submitForm(form: any) {
+    console.log(this.formData);
+  }
+
+
+  public loginMethod() {
+    this.http.post('http://127.0.0.1:8000/api/auth/login/', this.formData).subscribe((data: any) => {
+      const token = data.token
+      const user=JSON.stringify(data.user)
+      console.log(user)
+      localStorage.setItem('user',user)
+      localStorage.setItem('token', token)
+      this.router.navigate(['/home'])
+      this.toastr.success('Login Successful');
+
+    },(err)=>{
+      this.toastr.error('Invalid credentials')
+    })
+  }
+
+  ssoLoginMethod(email: any) {
+    this.http.post('http://127.0.0.1:8000/api/auth/login/sso/', { email: email }).subscribe((data: any) => {
+      const parsedUser=JSON.stringify(data.user)
+      console.log(parsedUser)
+      
+      localStorage.setItem('user',parsedUser)
+      this.token=data.token
+      localStorage.setItem('token',this.token)
+      this.isLoggedIn=true
+      this.router.navigate(['/home'])
+      this.toastr.success('Login Successful');
+    })
+  }
+
+
 
 }

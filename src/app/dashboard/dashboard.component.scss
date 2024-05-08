@@ -1,20 +1,39 @@
-.dashboard-container{
-    
+.dashboard-container {
     width: 1000px;
-    height: 800px;
-    background-color: antiquewhite;
+    display: flex;
+    background-color: white;
     margin-left: 15%;
     margin-top: 10rem;
-   
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 60px;
 }
 
-table, th, td {
-    border: 1px solid black;
+table {
     border-collapse: collapse;
-    padding: 10px;
-  }
-
-  .mapping-table{
     width: 100%;
-  }
+}
 
+th {
+    padding: 10px;
+    background-color: whitesmoke;
+}
+td{
+    padding: 10px;
+}
+
+
+
+tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Border at the bottom of each row */
+}
+
+/* Additional styling for the table */
+.mapping-table {
+    width: 100%;
+}
+
+.table-shop-image {
+    width: 70px;
+    aspect-ratio: 1/1;
+}

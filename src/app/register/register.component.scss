@@ -6,8 +6,9 @@
     width: 60vw;
     min-width: 400px;
     background-color:#FFFFF7;
-    padding: 10vh;
+    padding: 6vh;
     border-radius: 10px;
+
 
     .form-heading{
         display: flex;
@@ -32,3 +33,30 @@
   
  
 }
+
+
+  
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  img {
+    height: 200px;
+    width: 200px;
+    border: 5px solid #000;
+    border-radius: 50%;
+  }
+  
+  .select-profile-picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }

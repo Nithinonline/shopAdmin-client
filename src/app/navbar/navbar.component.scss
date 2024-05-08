@@ -2,7 +2,24 @@
     width: 100vw;
     height: 70px;
     display: flex;
-    background-color: whitesmoke;
+    background-color: white;
     box-shadow:  5px 0px 5px rgba(0, 0, 0, 0.3);
     z-index: 22;
+    position: relative;
+}
+.profile-div{
+    width: 100px;
+    height: 60px;
+    display: flex;
+    justify-content:center;
+    align-items: self-end;
+    position: absolute; 
+    right: 0; 
+    margin-right: 20px;
+}
+
+.profile-avatar{
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
 }
