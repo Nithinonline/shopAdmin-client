@@ -1,9 +1,11 @@
 .sidebar{
     width: 250px;
     background-color: white;
-    position: fixed;
     height: 100vh;
     box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.1);
+    color: #414a4c;
+    top: 0;
+
 }
 
 .menu-items{
@@ -11,25 +13,63 @@
     background-color: whitesmoke;
     border-radius: 5px;
     display: flex;
-    justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    
+    mat-icon{
+        margin-right: 10px;
+        margin-left: 30px;
+    }
 }
 .list-div{
     padding: 20px;
-    margin-top: 50px;
 }
-.sidebar-logo .brand-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    
-}
+
 a{
     text-decoration: none;
+    color: #414a4c;
+
 }
 .navbar-brand{
     font-size: 25px;
     
+}
+
+.menu-items-div{
+    margin-top: 80px;
+}
+
+
+@media screen and (max-width: 768px) {
+   .sidebar{
+    width: 80px;
+   }
+   
+
+   .menu-items{
+    height: 50px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    
+    mat-icon{
+        margin-left: 5px;
+    }
+    a{
+        display: none;
+    }
+}
+.list-div{
+    padding: 20px;
+}
+
+.sidebar-logo .brand-div{
+    display: none;
+}
+.sidebar-logo{
+    margin-top: 140px;
+
+}
 }

@@ -1,39 +1,40 @@
-.dashboard-container {
-    width: 1000px;
-    display: flex;
-    background-color: white;
-    margin-left: 15%;
-    margin-top: 10rem;
+.table-container {
+    margin-top: 120px;
+    width: 64vw;
+    overflow-x: auto; 
+    justify-content: center;
+   
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 60px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mapping-table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
 }
 
 table {
     border-collapse: collapse;
-    width: 100%;
 }
 
 th {
     padding: 10px;
     background-color: whitesmoke;
 }
-td{
+
+td {
     padding: 10px;
 }
 
-
-
 tr {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Border at the bottom of each row */
-}
-
-/* Additional styling for the table */
-.mapping-table {
-    width: 100%;
 }
 
 .table-shop-image {
     width: 70px;
     aspect-ratio: 1/1;
 }
+
+

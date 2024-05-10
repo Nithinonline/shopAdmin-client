@@ -2,24 +2,45 @@
     width: 100vw;
     height: 70px;
     display: flex;
+    justify-content: space-between;
     background-color: white;
     box-shadow:  5px 0px 5px rgba(0, 0, 0, 0.3);
-    z-index: 22;
-    position: relative;
 }
 .profile-div{
     width: 100px;
     height: 60px;
     display: flex;
     justify-content:center;
-    align-items: self-end;
+    align-items: center;
     position: absolute; 
+    top: 0;
     right: 0; 
-    margin-right: 20px;
+    margin-right: 5vw;
+
+    p{
+        margin-top: auto;
+    }
 }
 
 .profile-avatar{
     width: 50px;
     aspect-ratio: 1/1;
     border-radius: 100%;
+}
+
+.sidebar-logo .brand-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin-left: 20px;
+}
+
+.navbar-brand{
+    font-size: 25px;
+}
+@media screen and (max-width:768px) {
+    .navbar-brand{
+        font-size: 20px;
+    }
 }

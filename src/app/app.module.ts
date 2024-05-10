@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { NoopAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,6 +30,9 @@ import { SidebarModule } from 'ng-cdbangular';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CommonModule } from '@angular/common';
+import { SupportComponent } from './support/support.component';
+import { SupportFormComponent } from './support-form/support-form.component';
+import { ViewMoreComponent } from './view-more/view-more.component';
 
 
 
@@ -43,13 +46,16 @@ import { CommonModule } from '@angular/common';
     SidebarComponent,
     DashboardComponent,
     NavbarComponent,
+    SupportComponent,
+    SupportFormComponent,
+    ViewMoreComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule,  
     NoopAnimationsModule,
     MatIconModule,
     MatInputModule,
@@ -60,7 +66,8 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     SidebarModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
     
    
   ], 

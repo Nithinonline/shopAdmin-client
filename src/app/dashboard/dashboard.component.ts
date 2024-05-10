@@ -51,6 +51,7 @@ export class DashboardComponent {
   handleAddShopSubmit = () => {
     console.log(this.formData);
     this.username=localStorage.getItem('user')
+    
     const token = localStorage.getItem('token');
 
     if (token) {
@@ -131,5 +132,9 @@ export class DashboardComponent {
       console.log("There is no previous page")
     }
     
+  }
+
+  handleNavigate(){
+    this.router.navigate(['/more-details'])
   }
 }

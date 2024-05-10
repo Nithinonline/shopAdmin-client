@@ -1,6 +1,19 @@
 <div class="navbar-container">
+
+   <div class="sidebar-logo">
+      <div class="brand-div">
+          <mat-icon>
+              <span class="material-symbols-outlined">
+                  storefront
+              </span>
+          </mat-icon>
+
+          <span class="navbar-brand mb-0 ml-5 h1 ">Shop Manager</span>
+      </div>
+  </div>
+
    <div class="profile-div">
+      <p>{{activeUser.username | uppercase}}</p>
     <img src="{{baseUrl}}{{activeUser.image}}" alt="" class="profile-avatar">
-    <p>{{activeUser.username}}</p>
    </div>
 </div>

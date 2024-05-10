@@ -1,27 +1,29 @@
-<div class="dashboard-container">
-    <table class="mapping-table">
-        <tr>
-            <th style="width: 10%; height: 40px;">Image</th>
-            <th style="width:10%;">Shop Id</th>
-            <th style="width:15%;">Shop Name</th>
-            <th style="width:15%;">City</th>
-            <th style="width:20%;">Address</th>
-            <th style="width:15%;">Phone</th>
-            <th style="width:15%;"></th>
+<div class="table-div">
 
-        </tr>
-        
-        <tr *ngFor="let shop of fetchedData.results" >
-            <td><img class="table-shop-image" src={{shop.image}} alt=""></td>
-            <td>{{shop.id}}</td>
-            <td>{{shop.name}}</td>
-            <td>{{shop.city}}</td>
-            <td>{{shop.address}}</td>
-            <td>{{shop.phone}}</td>
-            <td><button type="button" class="btn btn-secondary">View More</button></td>
-        </tr>
-        <!-- Add more rows as needed -->
-    </table>
+    <div class="table-container">
 
-    
+        <table class="mapping-table">
+            <tr>
+                <th>Image</th>
+                <th >Shop Id</th>
+                <th >Shop Name</th>
+                <th >City</th>
+                <th >Address</th>
+                <th >Phone</th>
+                <th style="min-width:150px;"></th>
+
+            </tr>
+
+            <tr *ngFor="let shop of fetchedData.results">
+                <td><img class="table-shop-image" src={{shop.image}} alt=""></td>
+                <td>{{shop.id}}</td>
+                <td>{{shop.name}}</td>
+                <td>{{shop.city}}</td>
+                <td>{{shop.address}}</td>
+                <td>{{shop.phone}}</td>
+                <td><button type="button" class="btn btn-secondary"(click)="handleNavigate()">View More</button></td>
+            </tr>
+        </table>
+    </div>
+
 </div>
