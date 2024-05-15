@@ -96,7 +96,7 @@
             "styles": [
               "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/bootstrap-css-only/css/bootstrap.min.css"
+              "node_modules/bootstrap-css-only/css/bootstrap.min.css",
             ],
             "scripts": []
           }

@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SupportComponent } from './support/support.component';
 import { ViewMoreComponent } from './view-more/view-more.component';
+import { MoreDetailsPageComponent } from './more-details-page/more-details-page.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"home", pathMatch: "full" },
@@ -12,7 +13,7 @@ const routes: Routes = [
   {path:"register", component:RegisterComponent},
   {path:"login", component:LoginComponent},
   {path:"support",component:SupportComponent},
-  {path:"more-details",component:ViewMoreComponent}
+  {path:"more-details",component:MoreDetailsPageComponent}
 
 
 ];

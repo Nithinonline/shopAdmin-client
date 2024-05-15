@@ -29,7 +29,7 @@ export class MoreDetailsCardComponent {
   image: File | null = null;
   user:any=''
   baseUrl='http://127.0.0.1:8000/api/shops/'
-
+  updateBaseUrl='http://127.0.0.1:8000/api/shops/'
 
 
 

@@ -14,16 +14,30 @@
 
             </tr>
 
-            <tr *ngFor="let shop of fetchedData.results">
-                <td><img class="table-shop-image" src={{shop.image}} alt=""></td>
+            <tr *ngFor="let shop of fetchedData?.results">
+                <td><img class="table-shop-image" src={{imageBaseUrl}}{{shop.images[0]?.image}} alt=""></td>
                 <td>{{shop.id}}</td>
                 <td>{{shop.name}}</td>
                 <td>{{shop.city}}</td>
                 <td>{{shop.address}}</td>
                 <td>{{shop.phone}}</td>
-                <td><button type="button" class="btn btn-secondary"(click)="handleNavigate()">View More</button></td>
+                <td><button type="button" class="btn btn-secondary"(click)="handleViewMoreComponent(shop)">View More</button></td>
             </tr>
         </table>
+    
     </div>
 
+    <div class="paginator-container">
+        <div class="paginator-div">
+            <p-paginator class="bg-whitesmoke" 
+       
+        (onPageChange)="onPageChange($event)" 
+        [first]="first"
+        [rows]="rows" 
+        [totalRecords]="totalRecords" 
+       />
+        </div>
+    </div>
+
+    
 </div>

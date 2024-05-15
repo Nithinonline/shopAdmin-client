@@ -1,3 +1,100 @@
-.navbar{
-    padding: 0;
+.view-more-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.view-more-icons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.view-more-shop-image {
+    width: 200px;
+    aspect-ratio: 1/1;
+}
+
+.view-more-form1-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view-more-container2 {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 150px;
+}
+
+.first-div {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+
+}
+
+.view-more-image-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.example-full-width {
+    width: 500px;
+}
+
+.example-full-width-form2 {
+    width: 80%;
+}
+
+.form2-field-div {
+    display: flex;
+    justify-content: center;
+}
+
+.form1-input{
+    display: flex;
+}
+
+
+.carousel-container{
+    // background-color: antiquewhite;
+    width: 100%;
+    // display: flex;
+    // justify-content: center;
+  
+}
+
+.view-more-buttons{
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.update-button{
+    margin-right: 40px;
+}
+
+// .carousel-image{
+//     width: 20vw;
+    
+// }
+
+
+@media screen and (max-width: 768px){
+    .view-more-buttons{
+        display: flex;
+        justify-content: center;
+    }
+    .view-more-buttons{
+        display: flex;
+        flex-wrap: nowrap;
+        margin: 10px;
+    }
+    
 }

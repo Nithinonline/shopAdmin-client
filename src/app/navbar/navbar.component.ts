@@ -19,4 +19,9 @@ export class NavbarComponent {
    console.log("Nav onInit")
   }
 
+  handleLogout(){
+    localStorage.clear();
+    window.location.reload()
+  }
+
 }

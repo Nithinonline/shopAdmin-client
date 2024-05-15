@@ -1,9 +1,8 @@
 .table-container {
-    margin-top: 120px;
+    margin-top: 80px;
     width: 64vw;
     overflow-x: auto; 
     justify-content: center;
-   
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -35,6 +34,21 @@ tr {
 .table-shop-image {
     width: 70px;
     aspect-ratio: 1/1;
+}
+.paginator-div{
+    margin-top: 20px;
+}
+
+.table-div{
+    margin-bottom: 100px;
+}
+
+.paginator-container{
+    width: 64vw;
+    background-color: antiquewhite;
+}
+
+.paginator-div{
 }
 
 

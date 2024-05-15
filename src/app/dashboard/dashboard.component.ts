@@ -23,19 +23,29 @@ export class DashboardComponent {
   };
   image: File | null = null; 
 
-  fetchedData: any;
+
+
+  fetchedData: any=null;
   singleShop: any;
   isClosed: boolean = false;
   username:any;
   urlpath='http://127.0.0.1:8000/api/shops/'
+  imageBaseUrl='http://127.0.0.1:8000/'
+  
+  first: number = 0;
+  rows: number = 5; 
+  totalRecords: number = 0; 
+  rowsPerPageOptions: number[] = [5]; 
+  
 
   ngOnInit(): void {
     this.handleGetToken();
     if(this.tokenisActive){
       this.dataService.handleFetch().subscribe((data) => {
         this.fetchedData = data;
+        this.totalRecords=this.fetchedData.count
         console.log(this.fetchedData);
-        console.log(this.isClosed);
+        // console.log(this.fetchedData.results[0].images[0]);
       });
     }
     else{
@@ -81,7 +91,9 @@ export class DashboardComponent {
   }
 
   handleViewMoreComponent = (shop: any) => {
-    this.singleShop = shop;
+    this.dataService.singleShop=shop
+    console.log(this.dataService.singleShop)
+    this.router.navigate(['more-details'])
   }
 
   handleViewMoreButton = (isClosed: any) => {
@@ -104,37 +116,37 @@ export class DashboardComponent {
      this.username=localStorage.getItem('user') || null
      return this.tokenisActive
   } 
-  handleLogout(){
-    localStorage.clear();
-    window.location.reload()
-  }
+
   
-  handlePaginationNext(){
-    if(this.fetchedData.next){
-      this.dataService.getUrl=this.fetchedData.next
+  handlePagination(pageNumber: any){
+  
+      this.dataService.getUrl=`${this.urlpath}?page=${pageNumber+1}`
       console.log(this.dataService.getUrl)
-      this.ngOnInit()
-    }
-    else{
-      console.log("There is no next page")
-    }
+      this.ngOnInit() 
     
   }
 
    
-  handlePaginationPrevious(){
-    if(this.fetchedData.previous){
-      this.dataService.getUrl=this.fetchedData.previous
-      console.log(this.dataService.getUrl)
-      this.ngOnInit()
-    }
-    else{
-      console.log("There is no previous page")
-    }
+  // handlePaginationPrevious(){
+  //   if(this.fetchedData.previous){
+  //     this.dataService.getUrl=this.fetchedData.previous
+  //     console.log(this.dataService.getUrl)
+  //     this.ngOnInit()
+  //   }
+  //   else{
+  //     console.log("There is no previous page")
+  //   }
     
-  }
+  // }
 
   handleNavigate(){
     this.router.navigate(['/more-details'])
   }
+
+  
+  onPageChange($event: any){
+    console.log($event)
+    this.handlePagination($event.page) 
+  }
+
 }

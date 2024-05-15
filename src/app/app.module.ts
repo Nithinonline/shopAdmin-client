@@ -20,8 +20,7 @@ import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-s
 import {
   GoogleLoginProvider,
 } from '@abacritt/angularx-social-login';
-import { MatOption, MatOptionModule } from '@angular/material/core';
-
+import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -33,6 +32,15 @@ import { CommonModule } from '@angular/common';
 import { SupportComponent } from './support/support.component';
 import { SupportFormComponent } from './support-form/support-form.component';
 import { ViewMoreComponent } from './view-more/view-more.component';
+import { MoreDetailsPageComponent } from './more-details-page/more-details-page.component';
+import { PaginatorComponent } from './paginator/paginator.component';
+import { PaginatorModule } from 'primeng/paginator';
+import {CarouselModule} from 'primeng/carousel';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+import { ButtonModule } from 'primeng/button'; 
+import { ImageModule } from 'primeng/image'; 
+
+
 
 
 
@@ -49,7 +57,12 @@ import { ViewMoreComponent } from './view-more/view-more.component';
     SupportComponent,
     SupportFormComponent,
     ViewMoreComponent,
-    
+    MoreDetailsPageComponent,
+    PaginatorComponent,
+   
+   
+  
+   
   ],
   imports: [
     BrowserModule,
@@ -67,7 +80,16 @@ import { ViewMoreComponent } from './view-more/view-more.component';
     ToastrModule.forRoot(),
     SidebarModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    PaginatorModule,
+    CarouselModule,
+    ButtonModule,
+    ImageModule
+    
+    
     
    
   ], 
@@ -89,7 +111,6 @@ import { ViewMoreComponent } from './view-more/view-more.component';
         }
       } as SocialAuthServiceConfig,
     },
-   
   ],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

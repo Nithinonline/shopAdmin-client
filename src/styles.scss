@@ -34,9 +34,10 @@ $client-theme: mat.define-light-theme((
 @include mat.all-component-themes($client-theme);
 
 @import 'ngx-toastr/toastr';
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
 
-
-
+ 
 body{
     background-color: whitesmoke;
    
@@ -44,3 +45,9 @@ body{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}

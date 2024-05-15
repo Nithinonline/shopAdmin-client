@@ -4,7 +4,7 @@
 
     <div class="list-div">
         <div class="menu-items-div">
-            <div class="menu-items">
+            <div class="menu-items" (click)="handleRouting('/home')">
                 <mat-icon>
                     <span class="material-symbols-outlined">
                         home
@@ -13,7 +13,7 @@
                 <a href="/home">Home</a>
             </div>
 
-            <div class="menu-items">
+            <div class="menu-items" (click)="handleRouting('/shop-list')">
                 <mat-icon>
                     <span class="material-symbols-outlined">
                         format_list_bulleted
@@ -22,7 +22,7 @@
                 <a href="/shop-list">Shop List</a>
             </div>
 
-            <div class="menu-items">
+            <div class="menu-items" (click)="handleRouting('/support')">
                 <mat-icon>
                     <span class="material-symbols-outlined">
                         support_agent
