@@ -1,0 +1,33 @@
+.navbar{
+    padding: 0;
+}
+
+.dashboard-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.home-container{
+    height: 100%;
+}
+.home-second-cont{
+    height: 100%;
+}
+
+.inner-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.addShopButton{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+}
+
+.add-shop-icon{
+    display: flex;
+    justify-content: flex-end;
+}

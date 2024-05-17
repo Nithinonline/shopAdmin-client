@@ -15,31 +15,33 @@
 
         <div class="first-div">
 
-            <!-- <div class="view-more-image-container">
-                <div>
-                    <img src={{imageBaseUrl}}{{singleShopDetail?.images[0]?.image}} alt=""
-                        class="view-more-shop-image">
-                    <p class="edit-image-p">*Change the image</p>
-                </div>
-            </div> -->
+         
 
             <div class="" style="width:300px; height:200px">
-                <p-carousel [value]="shopImages">
+                <p-carousel [value]="shopImages || null">
                     <ng-template let-item pTemplate="item">
-                        <p-image [src]="'http://127.0.0.1:8000/' + item.image" alt="Image" width="200px">
-                        </p-image>
+                        <div class="image-container">                          
+                            <p-image [src]="'http://127.0.0.1:8000/' + item.image" alt="Image" width="200px">
+                            </p-image>
+                            <mat-icon *ngIf="!readOnlyMode" class="delete-icon" >
+                                <span class="material-symbols-outlined" (click)="handleImageDelete(item.id)">
+                                    delete
+                                </span>
+                            </mat-icon>
+                        </div>
                     </ng-template>
                 </p-carousel>
             </div>
-
-
+            
+          
 
         </div>
 
 
         <div class="view-more-buttons">
             <div>
-                <button type="button" class="btn btn-primary update-button" (click)="handleUpdateButton()">Update Shop</button>
+                <button type="button" class="btn btn-primary update-button" (click)="handleUpdateButton()">Update
+                    Shop</button>
             </div>
             <div>
                 <button type="button" class="btn btn-danger" (click)="handleDelete()">Delete Shop</button>
@@ -52,28 +54,28 @@
                 <div class="form2-field-div">
                     <mat-form-field class="example-full-width-form2">
                         <mat-label>Shop Name</mat-label>
-                        <input matInput placeholder="" value={{singleShopDetail.name}} class="form1-input" #name
+                        <input matInput placeholder="" value={{singleShopDetail?.name}} class="form1-input" #name
                             [readonly]="readOnlyMode">
                     </mat-form-field>
                 </div>
                 <div class="form2-field-div">
                     <mat-form-field class="example-full-width-form2">
                         <mat-label>Shop Id</mat-label>
-                        <input matInput placeholder="" value={{singleShopDetail.id}} [readonly]="readOnlyMode"
+                        <input matInput placeholder="" value={{singleShopDetail?.id}} [readonly]="true"
                             class="form1-input" name="id" #id>
                     </mat-form-field>
                 </div>
                 <div class="form2-field-div">
                     <mat-form-field class="example-full-width-form2">
                         <mat-label>City</mat-label>
-                        <input matInput placeholder="" value={{singleShopDetail.city}} name="city"
+                        <input matInput placeholder="" value={{singleShopDetail?.city}} name="city"
                             [readonly]="readOnlyMode" #city>
                     </mat-form-field>
                 </div>
                 <div class="form2-field-div">
                     <mat-form-field class="example-full-width-form2">
                         <mat-label>Address</mat-label>
-                        <input matInput placeholder="" value={{singleShopDetail.address}} [readonly]="readOnlyMode"
+                        <input matInput placeholder="" value={{singleShopDetail?.address}} [readonly]="readOnlyMode"
                             name="address" #address>
                     </mat-form-field>
                 </div>
@@ -81,14 +83,15 @@
                     <mat-form-field class="example-full-width-form2">
                         <mat-label>Phone</mat-label>
                         <input matInput placeholder="" type="number" class="no-spinners"
-                            value={{singleShopDetail.phone}} [readonly]="readOnlyMode" name="phone" #phone>
+                            value={{singleShopDetail?.phone}} [readonly]="readOnlyMode" name="phone" #phone>
                     </mat-form-field>
                 </div>
             </form>
         </div>
         <div *ngIf="!readOnlyMode" class="d-grid gap-2 col-6 mx-auto update-button-div">
-            <button class="btn btn-primary" type="button" (click)="handleUpdateShop(name,id,address,city,phone)">Update Shop</button>
+            <button class="btn btn-primary" type="button" (click)="handleUpdateShop(name,id,address,city,phone)">Update
+                Shop</button>
         </div>
-        
+
     </div>
 </div>

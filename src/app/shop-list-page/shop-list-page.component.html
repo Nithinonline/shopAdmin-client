@@ -1,0 +1,35 @@
+<div class="home-container">
+
+    <app-navbar class="navbar"></app-navbar>
+
+    <div class="d-flex home-second-cont">
+        <div class="home-second-div" [style.filter]="addNewShop ? 'blur(5px)' : 'none'">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="d-flex dashboard-div">
+
+            <div class="inner-div">
+                <div class="addShopButton" [style.filter]="addNewShop ? 'blur(5px)' : 'none'">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="handleAddNewShop()">Add New Shop</button>
+                </div>
+
+            
+
+                <div *ngIf="addNewShop">
+                    <app-add-shop (buttonStatusMessage)="recieveButtonStatus($event)"></app-add-shop>
+                </div>
+                <app-dashboard [style.filter]="addNewShop ? 'blur(5px)' : 'none'"></app-dashboard>
+            </div>
+
+
+        </div>
+
+        
+
+    </div>
+
+
+
+
+
+</div>

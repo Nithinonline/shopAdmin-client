@@ -38,7 +38,10 @@ import { PaginatorModule } from 'primeng/paginator';
 import {CarouselModule} from 'primeng/carousel';
 // import { MatFormFieldModule } from '@angular/material/form-field';
 import { ButtonModule } from 'primeng/button'; 
-import { ImageModule } from 'primeng/image'; 
+import { ImageModule } from 'primeng/image';
+import { ShopListPageComponent } from './shop-list-page/shop-list-page.component';
+import { AddShopComponent } from './add-shop/add-shop.component'; 
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -59,6 +62,8 @@ import { ImageModule } from 'primeng/image';
     ViewMoreComponent,
     MoreDetailsPageComponent,
     PaginatorComponent,
+    ShopListPageComponent,
+    AddShopComponent,
    
    
   
@@ -87,7 +92,8 @@ import { ImageModule } from 'primeng/image';
     PaginatorModule,
     CarouselModule,
     ButtonModule,
-    ImageModule
+    ImageModule,
+    DropdownModule
     
     
     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+
+
+  constructor(private router: Router){}
 
   activeUser:any;
   baseUrl="http://127.0.0.1:8000/"
@@ -21,7 +25,7 @@ export class NavbarComponent {
 
   handleLogout(){
     localStorage.clear();
-    window.location.reload()
+    this.router.navigate(['/login'])   
   }
 
 }

@@ -149,4 +149,5 @@ export class DashboardComponent {
     this.handlePagination($event.page) 
   }
 
+
 }

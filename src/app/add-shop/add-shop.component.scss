@@ -1,0 +1,100 @@
+.add-more-container {
+    /* Assuming this is a wrapper div around the entire modal */
+  }
+  
+  .addShop-card-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 40vw;
+    min-width: 380px;
+    aspect-ratio: 1/1;
+    background-color: #FFFFF7;
+    border-radius: 10px;
+    z-index: 9999; 
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .add-shop-icons-div {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .add-shop-icon {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .addShop-file-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-style: dashed;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .addShop-file-input {
+    width: 150px;
+  }
+  
+  .addShop-form1-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .example-form {
+    /* Assuming this is the form class used in the HTML */
+  }
+  
+  .addShop-form-feild-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .addShop-form-feild {
+    width: 80%;
+  }
+  
+  .view-more-form2-container {
+    display: flex;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  
+  .addShop-form2 {
+    /* Assuming this is the form class used in the HTML */
+  }
+  
+  .addShop-form2-feild {
+    width: 34vw;
+    min-width: 310px;
+  }
+  
+  .addShop-submit {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    justify-content: center;
+  }
+  
+  .addShop-button {
+    /* Assuming this is the button container class used in the HTML */
+  }
+  
+  .btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  

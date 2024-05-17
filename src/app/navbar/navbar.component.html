@@ -13,7 +13,7 @@
     </div>
 
     <div class="profile-div">
-        <p>{{activeUser.username | uppercase}}</p>
+        <p>{{activeUser?.username | uppercase}}</p>
         <img src="{{baseUrl}}{{activeUser.image}}" alt="" class="profile-avatar">
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
             <mat-icon>more_vert</mat-icon>

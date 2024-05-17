@@ -72,30 +72,38 @@
         </div>
     </section>
 </div> -->
+<!-- <div>
+ 
+  <p-dropdown 
+  class="form-control"
+      formControlName="selectedShop" 
+      [options]="allShops"
+      optionLabel="name"
+      placeholder="Select a shop" />
+
+</div> -->
 
 <div class="form-container">
+
   <div class="form">
-    <form class="support-form-div">
+    <form class="support-form-div" [formGroup]="form" >
       <div class="form-heading-container">
         <h2 class="form-heading">Contact Us</h2>
       </div>
 
       <div class="form-group">
-        <!-- <label for="exampleFormControlInput1">Email address</label> -->
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Name...">
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Name..." formControlName="name" name="name">
       </div>
 
       <div class="form-group">
-        <!-- <label for="exampleFormControlInput1">Email address</label> -->
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email...">
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email..." formControlName="email" name="email">
       </div>
 
       <div class="form-group">
-        <!-- <label for="exampleFormControlTextarea1">Example textarea</label> -->
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Message..."></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Message..." formControlName="message" name="message"></textarea>
       </div>
       <div class="form-group">
-        <button type="button" class="btn btn-primary">Send</button>
+        <button type="button" class="btn btn-primary" (click)="send()">Send</button>
       </div>
     </form>
   </div>

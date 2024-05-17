@@ -74,6 +74,8 @@
     justify-content: end;
     flex-wrap: wrap;
     margin: 20px;
+    margin-top: 80px;
+
 }
 
 .update-button{
@@ -84,6 +86,12 @@
 //     width: 20vw;
     
 // }
+.delete-icon{
+    display: flex;
+    width: 198px;
+    justify-content: center;
+}
+
 
 
 @media screen and (max-width: 768px){
@@ -92,9 +100,9 @@
         justify-content: center;
     }
     .view-more-buttons{
+        margin-top:85px;
         display: flex;
         flex-wrap: nowrap;
-        margin: 10px;
     }
     
 }

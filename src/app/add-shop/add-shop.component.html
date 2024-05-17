@@ -1,0 +1,75 @@
+<div>
+
+    <div class="add-more-container">
+        <div class="addShop-card-container">
+
+            <div class="add-shop-icons-div">
+                <div  class="add-shop-icon" >
+                    <mat-icon (click)="sendButtonEvent()">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </mat-icon>
+                </div>
+
+
+            </div>
+
+            <div class="addShop-file-input-container">
+
+                <input placeholder="" type="file" value="" multiple class="addShop-file-input" name="image"
+                    (change)="handleImageInput($event)">
+
+            </div>
+
+            <div class="addShop-form1-container">
+                <form class="example-form">
+                    <div class="addShop-form-feild-container">
+                        <mat-form-field class="addShop-form-feild">
+                            <mat-label>Shop Name</mat-label>
+                            <input matInput placeholder="" value="" [(ngModel)]="formData.name" name="name">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="addShop-form-feild-container">
+                        <mat-form-field class="addShop-form-feild">
+                            <mat-label>City</mat-label>
+                            <input matInput placeholder="" value="" [(ngModel)]="formData.city" name="city">
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+
+            <div class="view-more-form2-container">
+
+                <form class="addShop-form2">
+
+                    <div class="form2-field">
+                        <mat-form-field class="addShop-form2-feild">
+                            <mat-label>Address</mat-label>
+                            <input matInput placeholder="" value="" [(ngModel)]="formData.address" name="address">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form2-field">
+                        <mat-form-field class="addShop-form2-feild">
+                            <mat-label>Phone</mat-label>
+                            <input type="number" matInput placeholder="" value="" [(ngModel)]="formData.phone"
+                                name="phone">
+                        </mat-form-field>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="addShop-submit">
+                <div class="addShop-button">
+                    <button type="button" class="btn btn-dark" (click)="handleAddShopSubmit()">Add Shop</button>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
