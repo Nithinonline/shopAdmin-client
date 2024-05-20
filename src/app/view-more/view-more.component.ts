@@ -105,6 +105,7 @@ export class ViewMoreComponent {
           (data:any) => {
             console.log(data);
             this.router.navigate(['/home'])
+            this.toastr.success(`Shop with id ${data.id} updated`)
           },
           (error:any) => {
             console.error('Error creating shop:', error);

@@ -80,6 +80,7 @@ export class AddShopComponent implements OnInit {
           window.location.reload();
         },
         (error) => {
+          this.toaster.error("Invalid Data")
           console.error('Error creating shop:', error);
         }
       );
