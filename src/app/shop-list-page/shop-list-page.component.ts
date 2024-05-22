@@ -18,4 +18,6 @@ export class ShopListPageComponent {
   this.addNewShop=$event
   console.log($event)
   }
+
+  
 }

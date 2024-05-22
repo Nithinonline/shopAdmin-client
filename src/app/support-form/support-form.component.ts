@@ -42,7 +42,11 @@ export class SupportFormComponent implements OnInit {
     console.log(data)
     this.toaster.success("Email Send Successfully")
     window.location.reload()
-  })
+  }
+,(err)=>{
+  console.log(err)
+  this.toaster.error(err.error)
+})
   }
 
   private buildForm(): void {

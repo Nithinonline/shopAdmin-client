@@ -42,6 +42,7 @@ import { ImageModule } from 'primeng/image';
 import { ShopListPageComponent } from './shop-list-page/shop-list-page.component';
 import { AddShopComponent } from './add-shop/add-shop.component'; 
 import { DropdownModule } from 'primeng/dropdown';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 
 
@@ -64,6 +65,7 @@ import { DropdownModule } from 'primeng/dropdown';
     PaginatorComponent,
     ShopListPageComponent,
     AddShopComponent,
+    SearchbarComponent,
    
    
   

@@ -2,7 +2,10 @@
 
     <app-navbar class="navbar"></app-navbar>
 
-    <div class="d-flex home-second-cont">
+    <!-- Search bar -->
+
+
+    <div class="d-flex home-second-cont" >
         <div class="home-second-div" [style.filter]="addNewShop ? 'blur(5px)' : 'none'">
             <app-sidebar></app-sidebar>
         </div>
@@ -18,7 +21,12 @@
                 <div *ngIf="addNewShop">
                     <app-add-shop (buttonStatusMessage)="recieveButtonStatus($event)"></app-add-shop>
                 </div>
-                <app-dashboard [style.filter]="addNewShop ? 'blur(5px)' : 'none'"></app-dashboard>
+                <div>
+                    <app-searchbar [style.filter]="addNewShop ? 'blur(5px)' : 'none'"></app-searchbar>
+                </div>
+                <div class="dashboard-container">
+                    <app-dashboard [style.filter]="addNewShop ? 'blur(5px)' : 'none'"></app-dashboard>
+                </div>
             </div>
 
 

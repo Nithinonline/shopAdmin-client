@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DataService } from '../data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,28 +32,70 @@ export class DashboardComponent {
   username:any;
   urlpath='http://127.0.0.1:8000/api/shops/'
   imageBaseUrl='http://127.0.0.1:8000/'
+  searchValue:string=''
   
   first: number = 0;
   rows: number = 5; 
   totalRecords: number = 0; 
   rowsPerPageOptions: number[] = [5]; 
+
+  searchVal:string | undefined;
+  private subscriptions:Subscription[]=[]
+
   
 
   ngOnInit(): void {
-    this.handleGetToken();
-    if(this.tokenisActive){
-      this.dataService.handleFetch().subscribe((data) => {
-        this.fetchedData = data;
-        this.totalRecords=this.fetchedData.count
-        console.log(this.fetchedData);
-        // console.log(this.fetchedData.results[0].images[0]);
-      });
-    }
-    else{
-      this.router.navigate(["/login"])
-    }
-   
+    this.handleGet()
+
+    this.subscriptions.push(
+      this.dataService.currentSearchValue.subscribe(newValue=>{
+        this.searchVal=newValue;
+        console.log({"search value":this.searchVal})
+      })
+    )
+    console.log("ngOnInit")
+
+    this.subscriptions.push(
+      this.dataService.callFunction.subscribe(()=>{
+        this.handleGet()
+      })
+    )
   }
+
+  ngOnDestroy(){
+    this.subscriptions.forEach(sub=>sub.unsubscribe())
+  }
+
+  // handleFetchShops(){
+  //   const token=localStorage.getItem('token')
+  //   const headers=new HttpHeaders().set('Authorization',`token ${token}`)
+  //   if(this.searchValue){
+  //     this.urlpath=`http://127.0.0.1:8000/api/shops/?search=${this.searchValue}`
+  //   }
+  //   this.http.get(`${this.urlpath}`,{headers}).subscribe((data)=>{
+  //     this.fetchedData=data
+  //     this.totalRecords=this.fetchedData.count
+  //   })
+  // }
+
+handleGet(){
+  this.handleGetToken();
+  console.log("handledGet function from dashboard triggered")
+  if(this.tokenisActive){
+    this.searchValue=this.dataService.searchValue
+    // if(this.searchValue){
+    //   this.dataService.searchValue=this.searchValue
+    // }
+    this.dataService.handleFetch().subscribe((data) => {
+      this.fetchedData = data;
+      this.totalRecords=this.fetchedData.count
+      console.log(this.fetchedData);
+    });
+  }
+  else{
+    this.router.navigate(["/login"])
+  } 
+}
 
   handleAddShopClose = () => {
     this.addNewShop = !this.addNewShop;
@@ -148,6 +191,8 @@ export class DashboardComponent {
     console.log($event)
     this.handlePagination($event.page) 
   }
+
+
 
 
 }
