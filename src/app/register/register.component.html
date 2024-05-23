@@ -1,55 +1,72 @@
 <div class="shadow-lg container">
     <h1 class="form-heading">Sign Up</h1>
+    <form [formGroup]="signUpForm" (ngSubmit)="handleRegister()">
 
+        <div class="image-container">
+            <label class="hoverable" for="fileInput">
+                <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" />
+                <div class="hover-text">Choose file</div>
+                <div class="background"></div>
+            </label>
+            <br />
+            <input id="fileInput" type="file" [(ngModel)]="url" class="select-profile-picture"
+                (change)="onSelectFile($event)" name="image"/>
+        </div>
 
-
-    <form #signInForm="ngForm" (ngSubmit)="submitForm(signInForm)">
-
-
-        <!-- <div class="profile-image"> -->
-            <div class="image-container">
-                <label class="hoverable" for="fileInput">
-                    <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'" />
-                    <div class="hover-text">Choose file</div>
-                    <div class="background"></div>
-                </label>
-                <br />
-                <input id="fileInput" type="file" [(ngModel)]="url" class="select-profile-picture"
-                    (change)="onSelectFile($event)" name="image"/>
-            </div>
-
-        <!-- </div> -->
 
         <div class="form-group">
-            <label for="name">Username</label>
-            <input type="text" class="form-control" id="name" name="username" [(ngModel)]="formData.username"
-                placeholder="Username">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" formControlName="username" placeholder="Username">
+            <div *ngIf="signUpForm.get('username')?.errors?.['required'] && signUpForm.get('username')?.touched" class="text-danger">
+                Username is required.
+            </div>
         </div>
+
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="formData.email"
-                placeholder="Enter email">
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+            <div *ngIf="signUpForm.get('email')?.errors?.['required'] && signUpForm.get('email')?.touched" class="text-danger">
+                Email is required.
+            </div>
+            <div *ngIf="signUpForm.get('email')?.errors?.['email'] && signUpForm.get('email')?.touched" class="text-danger">
+                Enter a valid email.
+            </div>
         </div>
+
         <div class="form-group">
             <label for="phone">Contact</label>
-            <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="formData.phone"
-                placeholder="Contact">
+            <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Contact">
+            <div *ngIf="signUpForm.get('phone')?.errors?.['required'] && signUpForm.get('phone')?.touched" class="text-danger">
+                Contact number is required.
+            </div>
         </div>
-        
+
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="formData.password"
-                placeholder="Password">
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+            <div *ngIf="signUpForm.get('password')?.errors?.['required'] && signUpForm.get('password')?.touched" class="text-danger">
+                Password is required.
+            </div>
+            <div *ngIf="signUpForm.get('password')?.errors?.['minlength'] && signUpForm.get('password')?.touched" class="text-danger">
+                Password must be at least 8 characters long.
+            </div>
         </div>
+
         <div class="form-group">
-            <label for="password">Confirm Password</label>
-            <input type="password" class="form-control" id="password" name="password"
-                [(ngModel)]="formData.confirmPassword" placeholder="Password">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password">
+            <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['required'] && signUpForm.get('confirmPassword')?.touched" class="text-danger">
+                Confirm password is required.
+            </div>
+            <div *ngIf="signUpForm.get('password')?.value !== signUpForm.get('confirmPassword')?.value && signUpForm.get('confirmPassword')?.touched" class="text-danger">
+                Passwords do not match.
+            </div>
         </div>
+
         <span>Already have an account? <a href="/login">Login</a></span>
 
         <div class="button">
-            <button type="submit" class="btn btn-primary" (click)="handleRegister()">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
 </div>

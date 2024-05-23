@@ -37,7 +37,6 @@ export class DashboardComponent {
   first: number = 0;
   rows: number = 5;
   totalRecords: number = 0;
-  rowsPerPageOptions: number[] = [5];
 
   searchVal: string | undefined;
   private subscriptions: Subscription[] = []
@@ -89,14 +88,13 @@ export class DashboardComponent {
       // }
       this.dataService.handleFetch().subscribe((data) => {
         this.fetchedData = data;
-        this.totalRecords = this.fetchedData.count
-        console.log(this.fetchedData);
-        if(this.dataService.searchFlag){
+        if(this.dataService.pageFlag){
           this.first=0
-          this.rows=5
-          this.totalRecords=this.fetchedData.count
-          console.log(this.first,this.rows,this.totalRecords)
+          this.dataService.pageFlag=false
         }
+        this.totalRecords = this.fetchedData.count
+        console.log({"pageNumber":this.first})
+        console.log(this.fetchedData);
       });
      
     }
@@ -170,6 +168,7 @@ export class DashboardComponent {
 
 
   handlePagination(pageNumber: any) {
+    this.first = pageNumber * this.rows; 
     this.dataService.pageNumber=pageNumber+1
     // this.ngOnInit() 
     this.handleGet()
@@ -182,10 +181,12 @@ export class DashboardComponent {
 
 
   onPageChange($event: any) {
-    console.log("onPageChange from Dashboard")
     console.log($event)
+    this.first=$event.page
+    this.rows=$event.rows
     this.handlePagination($event.page)
-    console.log({"page":this.first})
+    
+    
   }
 
 

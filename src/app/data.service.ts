@@ -21,6 +21,7 @@ export class DataService {
   getUrl:String="http://127.0.0.1:8000/api/shops/"
   searchValue:any=''
   searchFlag:boolean=false;
+  pageFlag:boolean=false
   // searchBaseUrl:any=`http://127.0.0.1:8000/api/shops?name=${this.searchValue}`
   pageNumber:any=1
   url:any='http://127.0.0.1:8000/api/shops/'

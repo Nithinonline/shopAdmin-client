@@ -1,22 +1,29 @@
 <div class="container">
     <h1 class="form-heading">Login</h1>
-    <form #loginForm="ngForm" (ngSubmit)="submitForm(loginForm)">
+    <form [formGroup]="loginForm" (ngSubmit)="loginMethod()">
         
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" name="username" placeholder="Enter email" [(ngModel)]="formData.username">
+            <input type="email" class="form-control" id="email" name="username" placeholder="Enter email or username" required formControlName="username">
+            <div *ngIf="loginForm.get('username')?.errors?.['required'] && loginForm.get('username')?.touched" class="text-danger">
+                Email address is required.
+            </div>
         </div>
       
-
         <div class="form-group">
-            <label for="password">password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="password" [(ngModel)]="formData.password">
-        </div>
-        <span>create an account?<a href="/register">SignUp</a></span>
-        <div class="form-button">
-            <button type="submit" class="btn btn-primary" id="button" (click)="loginMethod()">Login</button>
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" formControlName="password">
+            <div *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched" class="text-danger">
+                Password is required.
+            </div>
         </div>
         
-         <asl-google-signin-button></asl-google-signin-button>
+        <span>Don't have an account? <a href="/register">SignUp</a></span>
+        
+        <div class="form-button">
+            <button type="submit" class="btn btn-primary" id="button">Login</button>
+        </div>
+        
+        <asl-google-signin-button></asl-google-signin-button>
     </form>
 </div>

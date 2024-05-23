@@ -17,6 +17,7 @@ export class SearchbarComponent {
 handleSearch(){
   this.dataService.searchValue=this.searchTerm
   this.dataService.searchFlag=true
+  this.dataService.pageFlag=true
   this.dataService.pageNumber=1
   console.log({"search Term":this.dataService.searchValue})
   this.callFunction()
@@ -27,6 +28,7 @@ handleClearSearch(){
   this.searchTerm=''
   this.dataService.searchValue=this.searchTerm
   this.dataService.searchFlag=false
+  this.dataService.pageFlag=false
   this.dataService.pageNumber=1
   this.callFunction()
 }
