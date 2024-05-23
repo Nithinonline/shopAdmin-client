@@ -8,12 +8,12 @@ import { Subscription } from 'rxjs';
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
-  
+
 })
 export class DashboardComponent {
   tokenisActive: any;
 
-  constructor(private http: HttpClient, private dataService: DataService,private router:Router) {}
+  constructor(private http: HttpClient, private dataService: DataService, private router: Router) { }
 
   addNewShop = false;
   formData = {
@@ -22,48 +22,49 @@ export class DashboardComponent {
     address: '',
     phone: ''
   };
-  image: File | null = null; 
+  image: File | null = null;
 
 
 
-  fetchedData: any=null;
+  fetchedData: any = null;
   singleShop: any;
   isClosed: boolean = false;
-  username:any;
-  urlpath='http://127.0.0.1:8000/api/shops/'
-  imageBaseUrl='http://127.0.0.1:8000/'
-  searchValue:string=''
-  
+  username: any;
+  urlpath: any = 'http://127.0.0.1:8000/api/shops?page='
+  imageBaseUrl = 'http://127.0.0.1:8000/'
+  searchValue: string = ''
+
   first: number = 0;
-  rows: number = 5; 
-  totalRecords: number = 0; 
-  rowsPerPageOptions: number[] = [5]; 
+  rows: number = 5;
+  totalRecords: number = 0;
+  rowsPerPageOptions: number[] = [5];
 
-  searchVal:string | undefined;
-  private subscriptions:Subscription[]=[]
+  searchVal: string | undefined;
+  private subscriptions: Subscription[] = []
 
-  
+
+
 
   ngOnInit(): void {
     this.handleGet()
 
     this.subscriptions.push(
-      this.dataService.currentSearchValue.subscribe(newValue=>{
-        this.searchVal=newValue;
-        console.log({"search value":this.searchVal})
+      this.dataService.currentSearchValue.subscribe(newValue => {
+        this.searchVal = newValue;
+        console.log({ "search value": this.searchVal })
       })
     )
     console.log("ngOnInit")
 
     this.subscriptions.push(
-      this.dataService.callFunction.subscribe(()=>{
+      this.dataService.callFunction.subscribe(() => {
         this.handleGet()
       })
     )
   }
 
-  ngOnDestroy(){
-    this.subscriptions.forEach(sub=>sub.unsubscribe())
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe())
   }
 
   // handleFetchShops(){
@@ -78,24 +79,31 @@ export class DashboardComponent {
   //   })
   // }
 
-handleGet(){
-  this.handleGetToken();
-  console.log("handledGet function from dashboard triggered")
-  if(this.tokenisActive){
-    this.searchValue=this.dataService.searchValue
-    // if(this.searchValue){
-    //   this.dataService.searchValue=this.searchValue
-    // }
-    this.dataService.handleFetch().subscribe((data) => {
-      this.fetchedData = data;
-      this.totalRecords=this.fetchedData.count
-      console.log(this.fetchedData);
-    });
+  handleGet() {
+    this.handleGetToken();
+    console.log("handledGet function from dashboard triggered")
+    if (this.tokenisActive) {
+      this.searchValue = this.dataService.searchValue
+      // if(this.searchValue){
+      //   this.dataService.searchValue=this.searchValue
+      // }
+      this.dataService.handleFetch().subscribe((data) => {
+        this.fetchedData = data;
+        this.totalRecords = this.fetchedData.count
+        console.log(this.fetchedData);
+        if(this.dataService.searchFlag){
+          this.first=0
+          this.rows=5
+          this.totalRecords=this.fetchedData.count
+          console.log(this.first,this.rows,this.totalRecords)
+        }
+      });
+     
+    }
+    else {
+      this.router.navigate(["/login"])
+    }
   }
-  else{
-    this.router.navigate(["/login"])
-  } 
-}
 
   handleAddShopClose = () => {
     this.addNewShop = !this.addNewShop;
@@ -103,8 +111,8 @@ handleGet(){
 
   handleAddShopSubmit = () => {
     console.log(this.formData);
-    this.username=localStorage.getItem('user')
-    
+    this.username = localStorage.getItem('user')
+
     const token = localStorage.getItem('token');
 
     if (token) {
@@ -114,9 +122,9 @@ handleGet(){
       formData.append('city', this.formData.city);
       formData.append('address', this.formData.address);
       formData.append('phone', this.formData.phone);
-      formData.append('user',this.username)
+      formData.append('user', this.username)
       if (this.image) {
-        formData.append('image', this.image); 
+        formData.append('image', this.image);
       }
 
       this.http.post(this.urlpath, formData, { headers }).subscribe(
@@ -134,7 +142,7 @@ handleGet(){
   }
 
   handleViewMoreComponent = (shop: any) => {
-    this.dataService.singleShop=shop
+    this.dataService.singleShop = shop
     console.log(this.dataService.singleShop)
     this.router.navigate(['more-details'])
   }
@@ -150,46 +158,34 @@ handleGet(){
       this.image = files[0];
     }
   }
-  handleIsClosedInAdd(){
-    this.isClosed=false
+  handleIsClosedInAdd() {
+    this.isClosed = false
     console.log(this.isClosed)
   }
-  handleGetToken=()=>{
-     this.tokenisActive=localStorage.getItem('token')
-     this.username=localStorage.getItem('user') || null
-     return this.tokenisActive
-  } 
-
-  
-  handlePagination(pageNumber: any){
-  
-      this.dataService.getUrl=`${this.urlpath}?page=${pageNumber+1}`
-      console.log(this.dataService.getUrl)
-      this.ngOnInit() 
-    
+  handleGetToken = () => {
+    this.tokenisActive = localStorage.getItem('token')
+    this.username = localStorage.getItem('user') || null
+    return this.tokenisActive
   }
 
-   
-  // handlePaginationPrevious(){
-  //   if(this.fetchedData.previous){
-  //     this.dataService.getUrl=this.fetchedData.previous
-  //     console.log(this.dataService.getUrl)
-  //     this.ngOnInit()
-  //   }
-  //   else{
-  //     console.log("There is no previous page")
-  //   }
-    
-  // }
 
-  handleNavigate(){
+  handlePagination(pageNumber: any) {
+    this.dataService.pageNumber=pageNumber+1
+    // this.ngOnInit() 
+    this.handleGet()
+
+  }
+
+  handleNavigate() {
     this.router.navigate(['/more-details'])
   }
 
-  
-  onPageChange($event: any){
+
+  onPageChange($event: any) {
+    console.log("onPageChange from Dashboard")
     console.log($event)
-    this.handlePagination($event.page) 
+    this.handlePagination($event.page)
+    console.log({"page":this.first})
   }
 
 

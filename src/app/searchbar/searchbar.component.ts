@@ -1,6 +1,6 @@
+import { DataService } from './../data.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -16,13 +16,18 @@ export class SearchbarComponent {
 
 handleSearch(){
   this.dataService.searchValue=this.searchTerm
+  this.dataService.searchFlag=true
+  this.dataService.pageNumber=1
+  console.log({"search Term":this.dataService.searchValue})
   this.callFunction()
 }
 
 handleClearSearch(){
   console.log("Clear Function from searchbar")
-  this.searchTerm=null
+  this.searchTerm=''
   this.dataService.searchValue=this.searchTerm
+  this.dataService.searchFlag=false
+  this.dataService.pageNumber=1
   this.callFunction()
 }
 

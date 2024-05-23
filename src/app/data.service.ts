@@ -19,7 +19,11 @@ export class DataService {
   shopDetails:any;
   singleShop:any;
   getUrl:String="http://127.0.0.1:8000/api/shops/"
-  searchValue:string=''
+  searchValue:any=''
+  searchFlag:boolean=false;
+  // searchBaseUrl:any=`http://127.0.0.1:8000/api/shops?name=${this.searchValue}`
+  pageNumber:any=1
+  url:any='http://127.0.0.1:8000/api/shops/'
 
 
   // changeSearchTerm(newSearchTerm:string){
@@ -34,13 +38,14 @@ export class DataService {
   handleFetch=()=>{
     const token=localStorage.getItem('token')
     const headers=new HttpHeaders().set('Authorization',`token ${token}`)
-    if(this.searchValue){
-      console.log(this.searchValue.length)
-      this.getUrl=`http://127.0.0.1:8000/api/shops?search=${this.searchValue}`
-    }else{
-      this.getUrl=`http://127.0.0.1:8000/api/shops/`
+    if(this.searchFlag){
+      this.url=`${this.getUrl}?name=${this.searchValue}&page=${this.pageNumber}`
     }
-    return this.http.get(`${this.getUrl}`,{headers})
+    if(!this.searchFlag){
+      this.url=`${this.getUrl}?page=${this.pageNumber}`
+    }
+
+    return this.http.get(`${this.url}`,{headers})
   }
 
   

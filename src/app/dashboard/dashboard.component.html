@@ -5,11 +5,11 @@
         <table class="mapping-table">
             <tr>
                 <th>Image</th>
-                <th >Shop Id</th>
-                <th >Shop Name</th>
-                <th >City</th>
-                <th >Address</th>
-                <th >Phone</th>
+                <th>Shop Id</th>
+                <th>Shop Name</th>
+                <th>City</th>
+                <th>Address</th>
+                <th>Phone</th>
                 <th style="min-width:150px;"></th>
 
             </tr>
@@ -21,23 +21,19 @@
                 <td>{{shop.city}}</td>
                 <td>{{shop.address}}</td>
                 <td>{{shop.phone}}</td>
-                <td><button type="button" class="btn btn-secondary"(click)="handleViewMoreComponent(shop)">View More</button></td>
+                <td><button type="button" class="btn btn-secondary" (click)="handleViewMoreComponent(shop)">View
+                        More</button></td>
             </tr>
         </table>
-    
+
     </div>
 
     <div class="paginator-container">
         <div class="paginator-div">
-            <p-paginator class="bg-whitesmoke" 
-       
-        (onPageChange)="onPageChange($event)" 
-        [first]="first"
-        [rows]="rows" 
-        [totalRecords]="totalRecords" 
-       />
+            <p-paginator class="bg-whitesmoke" (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows"
+                [totalRecords]="totalRecords" />
         </div>
     </div>
 
-    
+
 </div>
